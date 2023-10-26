@@ -93,6 +93,33 @@ font_heading: Roboto Slab, Helvetica, Arial, sans-serif
 # pages with `comments: true` in the front matter.
 # disqus:                <disqus_shortname>
 
+# Set which comment system to use
+comments:
+  # 'disqus' / 'giscus' / 'utterances' are available
+  provider: utterances
+
+# You must install utterances github app before use.(https://github.com/apps/utterances)
+# Make sure all variables are set properly. Check below link for detail.
+# https://utteranc.es/
+utterances:
+  repo: "speech-team-korea/speech-team-korea.github.io"
+  issue-term: "pathname"
+  label: "Comments"
+  theme: "dark-blue"
+
+# You must install giscus github app before use.(https://github.com/apps/giscus)
+# Make sure all variables are set properly. Check below link for detail.
+# https://giscus.vercel.app/
+giscus:
+  repo: "[your-repo]"
+  repo-id: "[your-repo-id]"
+  category: "Comments"
+  category-id: "[your-category-id]"
+  mapping: "pathname"
+  reaction-enabled: "1"
+  theme: "dark_dimmed"
+  crossorigin: "anonymous"
+
 # Setting a tinyletter username will enable the newsletter subscription box.
 # tinyletter:            <tinyletter_username>
 
