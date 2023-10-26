@@ -67,7 +67,9 @@ author2:
   name: Hyung-Seok Oh
   email: hs_oh@korea.ac.kr
   about: |
-    Temp
+    hs_oh
+
+    expressive speech synthesis, emotional voice conversion
   picture: https://placehold.it/128x128
   # twitter: <username>
   github: https://github.com/hsoh0306
@@ -80,7 +82,9 @@ author3:
   name: Seung-bin Kim
   email: sb_kim@korea.ac.kr
   about: |
-    Temp2
+    sb_kim
+
+    speech-to-speech translation
   picture: https://placehold.it/128x128
   # twitter: <username>
   github: https://github.com/sb-kim-prml
