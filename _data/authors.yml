@@ -3,7 +3,7 @@
 # Change `author1` to your shortname.
 author1:
   name: PRML Speech Team
-  email: hs_oh@korea.ac.kr
+  email:
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
@@ -71,6 +71,19 @@ author2:
   picture: https://placehold.it/128x128
   # twitter: <username>
   github: https://github.com/hsoh0306
+  accent_color: "#268bd2"
+  accent_image:
+    background: "#202020"
+    overlay: false
+
+author3:
+  name: Seung-bin Kim
+  email: sb_kim@korea.ac.kr
+  about: |
+    Temp2
+  picture: https://placehold.it/128x128
+  # twitter: <username>
+  github: https://github.com/sb-kim-prml
   accent_color: "#268bd2"
   accent_image:
     background: "#202020"

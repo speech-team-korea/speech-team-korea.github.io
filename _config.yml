@@ -91,8 +91,13 @@ font_heading: Roboto Slab, Helvetica, Arial, sans-serif
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
-# disqus:                <disqus_shortname>
+disqus: temp
 
+defaults:
+  - scope:
+      type: posts
+    values:
+      comments: true
 # Set which comment system to use
 comments:
   # 'disqus' / 'giscus' / 'utterances' are available
