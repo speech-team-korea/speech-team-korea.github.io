@@ -93,6 +93,12 @@ font_heading: Roboto Slab, Helvetica, Arial, sans-serif
 # pages with `comments: true` in the front matter.
 # disqus: temp
 
+defaults:
+  - scope:
+      type: posts
+    values:
+      comments: true
+
 # Set which comment system to use
 comments:
   # 'disqus' / 'giscus' / 'utterances' are available
