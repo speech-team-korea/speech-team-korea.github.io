@@ -34,12 +34,6 @@
   href="https://{{ disqus }}.disqus.com"
   id="_hrefDisqus"
 />
-{% endif %} {% if site.comments.provider == "disqus" and site.disqus %}
-<link
-  rel="dns-prefetch"
-  href="https://{{ disqus }}.disqus.com"
-  id="_hrefDisqus"
-/>
 {% endif %} {% comment %}<!--
 The links below are here so that we can use their `href` in JS (see `_js/src/katex.js`).
 This way, CDN optimizers or other tools can modify the URL and we avoid hard-coding it in JavaScript.
