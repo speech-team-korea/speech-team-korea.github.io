@@ -1,9 +1,9 @@
 ---
 layout: list
-title: Blog
-slug: Blog
+title: Post
+slug: Post
 menu: true
 order: 2
 description: >
-  블로그
+  각종 팁 관련 
 ---

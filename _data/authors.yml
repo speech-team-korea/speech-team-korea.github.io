@@ -82,9 +82,7 @@ sb_kim:
   name: Seung-Bin Kim
   email: sb_kim@korea.ac.kr
   about: |
-    sb_kim
-
-    speech-to-speech translation
+    Translation, Pronunciation Editing
   picture: ./assets/img/profiles/sb_kim.jpeg
   # twitter: <username>
   github: https://github.com/sb-kim-prml
@@ -97,7 +95,7 @@ dm_byun:
   name: Dong-Min Byun
   email: dm_byun@korea.ac.kr
   about: |
-    dm_byun
+    Singing Voice Synthesis, Speaker Generation
 
   picture: ./assets/img/profiles/dm_byun.jpeg
   # twitter: <username>
@@ -111,7 +109,7 @@ hw_bae:
   name: Hyun-Woo Bae
   email: hw_bae@korea.ac.kr
   about: |
-    hw_bae
+    Pronunciation Editing
 
   picture: ./assets/img/profiles/hw_bae.jpeg
   # twitter: <username>
@@ -125,7 +123,7 @@ hy_choi:
   name: Ha-Young Choi
   email: hayeong@korea.ac.kr
   about: |
-    hy_choi
+    Voice Conversion
 
   picture: ./assets/img/profiles/hy_choi.jpeg
   # twitter: <username>
@@ -139,7 +137,7 @@ dh_cho:
   name: Deok-Hyeon Cho
   email: dh_cho@korea.ac.kr
   about: |
-    dh_cho
+    Emotional Voice Conversion
 
   picture: ./assets/img/profiles/dh_cho.jpeg
   # twitter: <username>
@@ -153,7 +151,7 @@ je_lee:
   name: Jieun Lee
   email: je_lee@korea.ac.kr
   about: |
-    je_lee
+    Singing Voice Synthesis, Speaker Generation
 
   picture: ./assets/img/profiles/je_lee.jpeg
   # twitter: <username>
@@ -167,7 +165,7 @@ jh_cha:
   name: Jun-Hyeok Cha
   email: jh_cha@korea.ac.kr
   about: |
-    jh_cha
+    Speech Synthesis
 
   picture: ./assets/img/profiles/jh_cha.jpeg
   # twitter: <username>
@@ -181,7 +179,7 @@ jh_yun:
   name: Jun-Hak Yun
   email: jh_yun@korea.ac.kr
   about: |
-    jh_yun
+    Speech Synthesis
 
   picture: ./assets/img/profiles/jh_yun.jpeg
   # twitter: <username>
