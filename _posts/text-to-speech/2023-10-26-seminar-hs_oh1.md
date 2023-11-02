@@ -3,7 +3,9 @@ layout: post
 title: "[Author], [Paper title], [Journal/Conference], [year]"
 description: >
   세미나 글 예시
-tags: [Seminar]
+# tags: [seminar]
+category: text-to-speech
+tags: text-to-speech
 author: author2
 comments: true
 ---
