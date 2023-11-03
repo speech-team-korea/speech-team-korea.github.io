@@ -5,7 +5,7 @@ description: >
   FluentSpeech 논문 요약
 category: pronunciation-editing
 tags: Pronunciation Editing
-author: HyeonWooBae
+author: hw_bae
 comments: true
 ---
 
