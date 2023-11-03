@@ -1,6 +1,5 @@
 ---
 layout: post
-title: "마크다운 [.md] 파일로 포스트 작성하기"
 description: >
   블로그를 사용하는 방법에 대한 전반적인 내용이다.
 category: post
@@ -27,7 +26,6 @@ comments: true
 ```markdown
 ---
 layout: post
-title: "마크다운 [.md] 파일로 포스트 작성하기"
 description: >
   블로그를 사용하는 방법에 대한 전반적인 내용이다.
 category: post
@@ -46,14 +44,12 @@ comments: true
 머릿말의 각 부분에 대한 설명은 다음과 같다.
 
 - `layout` : 레이아웃, 포스팅할 때는 `post` 를 쓰면 된다.
-- `title`: 포스팅 제목
 - `description` : 요약, 미리보기에 보여지는 글
 - `category` : 카테고리
 - `tags` : 태그
 - `author` : 작성자, `_data/authors.yml`에 작성자 등록 후 사용
 - `comments` : 댓글 여부
-
-왜인지 모르겠지만 업로드하고 나면 `title` 에 있는 제목이 뜨는 것이 아니라 본문의 제일 첫번째 줄이 제목으로 뜨는 현상이 발생한다. 아직 해결 방안을 찾지 못했으니 우리는 본문에 제목을 한번 더 쓰고 글을 쓰도록 하자. 
+- 포스팅 타이틀은 머릿글 아래에 `# [title]` 형식으로 작성한다. 
 
 ### 문서 편집 도구
 
@@ -139,13 +135,14 @@ description: >
 ---
 layout: tag-list
 type: tag
-title: Text-to-Speech
 slug: text-to-speech
 category: seminar
 sidebar: true
 description: >
    Text-to-speech 관련 논문 
 ---
+
+# title
 ```
 
 서브 메뉴의 추가도 유사하다. 차이점은 `type`이 `tag`라는 점이랑 `category`를 지정해줘야한다는 것이다. 
@@ -155,7 +152,7 @@ description: >
 앞서 소개한 내용을 바탕으로 포스팅을 하는 방법은 다음과 같다. 
 
 1. `_posts` 아래 원하는 카테고리 디렉토리에 파일을 작성한다. 카테고리가 없을 경우 생성한다. 파일 이름은 `yyyy-mm-dd-[file name].md`로 작성한다. 
-2. 머릿글을 작성한다. 카테고리를 잘 확인하자. 현재 `title`이 제목으로 안뜨는 현상이 있어서 일단 제목은 머릿글 아래에 한번 더 써주도록 하자.
+2. 머릿글을 작성한다. 카테고리를 잘 확인하자. title은 머릿글 아래에 `# [title]`로 써준다. 
 3. 원하는 문서 편집기를 이용하여 본문을 작성하도록 하자. 본문 내용은 마크다운 문법을 사용하고, 자유롭게 작성하면 된다. 
     1. 이미지를 첨부할 때는 `/assets/img/[file name]` 으로 디렉토리를 생성하고 그 안에 저장하도록 하자. 
 4. 포스팅을 완료했으면 수정된 모든 파일을 `commit`하고 `push` 한다. 
