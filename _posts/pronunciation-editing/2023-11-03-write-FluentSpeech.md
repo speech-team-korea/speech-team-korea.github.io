@@ -3,7 +3,7 @@ layout: post
 title: "[Pronunciation Editing] FluentSpeech"
 description: >
   FluentSpeech 논문 요약
-category: Pronunciation Editing
+category: pronunciation-editing
 tags: Pronunciation Editing
 author: HyeonWooBae
 comments: true
