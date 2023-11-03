@@ -7,7 +7,7 @@ author: hs_oh
 comments: true
 ---
 
-F.cross_entropy 팁
+### F.cross_entropy 팁
 
 ```
 loss = (F.cross_entropy(pred, lbl, reduction='none') * mask.squeeze(1)).sum() / mask.sum()
