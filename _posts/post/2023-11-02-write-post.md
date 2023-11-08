@@ -47,9 +47,32 @@ comments: true
 - `description` : 요약, 미리보기에 보여지는 글
 - `category` : 카테고리
 - `tags` : 태그
-- `author` : 작성자, `_data/authors.yml`에 작성자 등록 후 사용
+- `author` : 작성자, `_data/authors.yml`에 작성자 등록 후 사용한다.
 - `comments` : 댓글 여부
 - 포스팅 타이틀은 머릿글 아래에 `# [title]` 형식으로 작성한다. 
+
+### _data/authors.yml
+작성자 정보는 다음과 같이 작성하면 된다. 
+```
+# Another author (optional)
+hs_oh:
+  name: Hyung-Seok Oh
+  email: hs_oh@korea.ac.kr
+  about: |
+    hs_oh
+
+    expressive speech synthesis, emotional voice conversion
+  picture: ./assets/img/profiles/hs_oh.jpeg
+  # twitter: <username>
+  github: https://github.com/hsoh0306
+  accent_color: "#268bd2"
+  accent_image:
+    background: "#202020"
+    overlay: false
+```
+`hs_oh`는 author의 아이디라고 생각하면 된다. 여기 쓰여진 값을 위에 작성자 정보에 쓰면 된다. 
+프로필은 자유롭게 작성하면 된다.
+
 
 ### 문서 편집 도구
 
@@ -145,7 +168,9 @@ description: >
 # title
 ```
 
-서브 메뉴의 추가도 유사하다. 차이점은 `type`이 `tag`라는 점이랑 `category`를 지정해줘야한다는 것이다. 
+서브 메뉴의 추가도 유사하다. 차이점은 `type`이 `tag`라는 점이랑 `category`를 지정해줘야한다는 것이다.
+
+카테고리와 테그는 `featured_categories` `_featured_tags` 내에 `[category].md` 또는 `[tag].md` 파일을 확인하고, `slug`를 넣어야한다. 
 
 ### 포스팅 유의 사항
 
