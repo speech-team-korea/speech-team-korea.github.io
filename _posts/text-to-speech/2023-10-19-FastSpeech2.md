@@ -11,20 +11,20 @@ comments: true
 
 # FastSpeech 2
 
-![](/assets/img/2023-11-03-write-FluentSpeech/Untitled.png)
+![](assets/img/2023-10-19-FastSpeech2/Untitled.png)
 
-![](/assets/img/2023-11-03-write-FluentSpeech/Untitled%201.png)
+![](/assets/img/2023-10-19-FastSpeech2/Untitled%201.png)
 
 - **Waveform Decoder를 학습할 때,**
     - Waveform 길이 자체가 엄청 길기 때문에 short audio clip으로 잘라서 학습을 함
     - 여기서 Mel-spectrogram decoder도 같이 학습을 하는데,
         
-        ![](/assets/img/2023-11-03-write-FluentSpeech/Untitled%202.png)
+        ![](/assets/img/2023-10-19-FastSpeech2/Untitled%202.png)
         
     - mel-spectrogram decoder를 활용한다는 말이 앞단에서 phoneme sequence 정보를 잘 학습하기 위해 Mel-spectrogram decoder의 loss도 같이 활용해서 학습을 한다는 말이였음
     - Waveform Decoder에서는 audio를 일부만 잘라서 학습을 하기 때문에 그 부분에 대한 gradient만 흐르니까 전체 sequence에 대해 학습을 잘하기 위해서 mel-spectrogram decoder에서 전체 mel에 대한 loss를 같이 활용하는 것임
         
-        ![](/assets/img/2023-11-03-write-FluentSpeech/Untitled%203.png)
+        ![](/assets/img/2023-10-19-FastSpeech2/Untitled%203.png)
         
     - 그리고 inference때는 waveform decoder만 활용해서 text ⇒ waveform과정을 보여줌
 - **Pitch predictor에서 실제로 쓸 때,**
@@ -39,9 +39,9 @@ comments: true
     - pitch 뽑는게 꽤 오래 걸림
 - **FastSpeech 2s 학습 시간이 왜 이렇게 오래 걸릴까?**
     
-    ![](/assets/img/2023-11-03-write-FluentSpeech/Untitled%204.png)
+    ![](/assets/img/2023-10-19-FastSpeech2/Untitled%204.png)
     
-    ![](/assets/img/2023-11-03-write-FluentSpeech/Untitled%205.png)
+    ![](/assets/img/2023-10-19-FastSpeech2/Untitled%205.png)
     
     - FastSpeech 2s를 제외한 3개 모델은 vocoder training학습 시간까지 고려하지 않은 Training time을 적어놓음
     - 어쨌든 Waveform을 End-to-End로 학습하는 것은 꽤 오래걸린다를 알고있으면 됨
