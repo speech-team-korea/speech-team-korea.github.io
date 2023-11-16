@@ -1,3 +1,14 @@
+---
+layout: post
+title: "Glow: Generative Flow with Invertible 1x1 Convolutions"
+description: >
+  아직 미완성입니다..!
+category: seminar
+tags: generative-model
+author: jh_cha
+comments: true
+---
+
 # Glow: Generative Flow
 with Invertible 1×1 Convolutions
 

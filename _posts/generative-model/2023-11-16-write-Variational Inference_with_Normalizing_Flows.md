@@ -1,3 +1,14 @@
+---
+layout: post
+title: "Variational Inference with Normalizing Flows"
+description: >
+  아직 미완성입니다..!
+category: seminar
+tags: generative-model
+author: jh_cha
+comments: true
+---
+
 # Variational Inference with Normalizing Flows
 
 # Goal
