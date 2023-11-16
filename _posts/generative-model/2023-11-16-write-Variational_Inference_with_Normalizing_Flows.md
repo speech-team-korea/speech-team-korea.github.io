@@ -17,7 +17,7 @@ comments: true
 
 # Motivations
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig.png)
 
 **Variational Inference**의 목적은 계산이 어려운 사후확률 분포 $p(z|x)$를 계산이 보다 쉬운 approximate posterior distribution인 $q(z|x)$로 근사하는 것입니다.
 
@@ -46,7 +46,7 @@ KL divergence는 non-symmetric하게 두 개의 확률 분포 $P$와 $Q$사이�
 
 여기서 보통 $P$는 the true posterior distribution, $Q$는 the approximate distribution라는 가정을 사용한다
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%201.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig1.png)
 
 discrete와 continuous 확률 분포에 대해 각각 이렇게 정의할 수 있고,
 
@@ -73,7 +73,7 @@ Entropy는 간단히 말하면, the average amount of information이다
 
 Entropy는 discrete와 continuous 확률 분포에 대해 아래와 같이 정의 가능한데,
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%202.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig2.png)
 
 - **Entropy**를 the minimum number of bits(or symbol) you need to encode an event drawn from your probability distribution으로도 직관적으로 이해 가능
     
@@ -108,7 +108,7 @@ Entropy는 discrete와 continuous 확률 분포에 대해 아래와 같이 정�
 
 즉, **KL divergence**를 우리가 확률분포 $P$ 대신 확률분포 $Q$를 사용하면서 확률 분포를 잘못 추정할 때 필요한 **average extra-message length**로 볼 수 있다
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%203.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig3.png)
 
 그래서 만약 theoretic minimal distribution인 $P$가 있을때,
 
@@ -129,7 +129,7 @@ $𝐷_{𝐾𝐿}(𝑃||𝑄)≠𝐷_{𝐾𝐿}(𝑄||𝑃)$
 그래서 적절한 approximate distribution $Q$를 고를 때, 최대한 $P$의 non-zero part를 cover하도록 $Q$를 선택하게 된다 (그림에서 $P$는 multimodal이지만 $Q$는 bell shaped임)
 이때 문제점은 Forward KL divergence를 최소화하면서, original distribution에서는 low density를 가지지만, approximate distribution에서는 maximum density를 가진다는 점임 (center of $Q$)
     
-    ![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%204.png)
+    ![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig4.png)
     
 2. **Reverse KL divergence**
 여기서도 마찬가지로 $P$가 theoretic distribution, $Q$가 approximation
@@ -141,9 +141,9 @@ $𝐷_{𝐾𝐿}(𝑃||𝑄)≠𝐷_{𝐾𝐿}(𝑄||𝑃)$
 Q는 분포 P의 mode 중 하나에 잘 matching하고 있고 좋은 approximation을 하고 있다
 **Reverse KL divergence를 자주 사용하는 이유** 중 하나이고 다른 수학적인 이유도 있다고 한다
     
-    ![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%205.png)
+    ![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig5.png)
     
-    ![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%206.png)
+    ![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig6.png)
     
 </aside>
 
@@ -155,7 +155,7 @@ Q는 분포 P의 mode 중 하나에 잘 matching하고 있고 좋은 approximati
 
 이 과정은 일반적으로 실행 불가능하기 때문에, 대신 주변 가능성(marginal probability)의 하한(lower bound)을 최적화하는 방법을 사용합니다.
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%207.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig7.png)
 
 모델은 관측값(observed data) $*x*$, 잠재 변수(latent variable) $*z$,* 그리고 모델 파라미터 $*θ*$로 구성됩니다.
 
@@ -201,7 +201,7 @@ $*p_θ(x∣z)*$는 likelihood이고 $*p(z)*$는 잠재 변수(latent variable)�
     
 2. **Backpropagation with Monte Carlo**
     
-    ![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%208.png)
+    ![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig8.png)
     
 
 확률적인 샘플링을 기반으로 기울기의 기대치를 추정합니다. 
@@ -244,15 +244,15 @@ p(\mathbf{x})=\pi(\mathbf{z})\Bigl|\text{det}\frac{d\mathbf{z}}{d\mathbf{x}}\Big
 
 ## Jacobian Matrix and Determinant
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%209.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig9.png)
 
 **[Jacobian matrix](https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant)**는 위와같이 벡터 $\text{x}$, $\text{y}$에 대한 일차 편미분을 행렬로 나타낸 것입니다.
 
 즉, 우리가 $n$차원 입력 벡터 $\text{x}$를 $m$차원 출력 벡터 $\text{y}$로 mapping하는 ($\text{y}:\mathbb{R}^n \mapsto \mathbb{R}^m$)함수가 주어지면 이 함수의 모든 1차 편미분 함수 행렬을 이렇게 Jacobian matrix로 간단하게 표현할 수 있습니다.
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%2010.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig10.png)
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%2011.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig11.png)
 
 **[Determinant](https://en.wikipedia.org/wiki/Determinant)**는 행렬을 대표하는 값으로, 정방행렬(Square Matrix)에 어떤 특정한 방법으로 하나의 수를 대응시키는 일종의 함수입니다.
 
@@ -274,11 +274,11 @@ Determinant의 성질은 아래와 같습니다.
 
 이제 **Normalizing Flow**의 동작 과정은 간단하게 표현하면 아래와 같습니다.
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%2012.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig12.png)
 
 ($x$는 high dimensional data, $z$는 latent variable)
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%2013.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig13.png)
 
 여기서 $**z$의 확률 분포를 알고 있다면 $x$의 확률 분포를 구할 수 있습니다**.
 
@@ -290,7 +290,7 @@ $p(x)$ $=$ $p(z)detJ$로 $z$의 확률 분포에 scalar값인 determinant를 곱
 
 그런데 실제 데이터인  $x$는 보통 매우 복잡한 분포를 가지기 때문에 $x$와 $z$를 하나의 함수로 바로 연결하기는 어렵습니다.
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%2014.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig14.png)
 
 $p(x)=p(z_{1})detJ_{1}$ 
 
@@ -306,7 +306,7 @@ $p(z_{n-1})=p(z_{n})detJ_{n}$
 
 최종적으로 log likelihood는  $log($$p(x))$ $=$ $log(p(z_{n}))+\Sigma_n log(detJ_{n})$로 표현됩니다.
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%2015.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig15.png)
 
 딥러닝에서 Normalizing Flow를 적용하여 $x$의 확률 분포를 알기 위해서는 **2가지 조건이 꼭 충족**되어야 합니다.
 
@@ -315,9 +315,9 @@ $p(z_{n-1})=p(z_{n})detJ_{n}$
 
 이 2가지 조건을 고려하여 함수  $f$를 선택해야 하고, 이 flow 함수들을 모델마다 어떻게 구현하는 지가 다릅니다.
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%2016.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig16.png)
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%2017.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig17.png)
 
 ## **Finite Flows and Infinitesimal Flows**
 
@@ -325,13 +325,13 @@ Finite Flows와 Infinitesimal Flows은 Normalizing Flows에서 사용되는 두 
 
 # Experiments
 
-![Effect of normalizing flow on two distributions](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%2018.png)
+![Effect of normalizing flow on two distributions](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig18.png)
 
 Effect of normalizing flow on two distributions
 
 초기 Unit Gaussian 분포로부터 복잡한 분포 변환 가능한 normalizing flow의 performance를 보여주고 있음
 
-![Approximating four non-Gaussian 2D distributions. The images represent densities for each energy function in table 1 in the range (−4,4)$^2$. (a) True posterior; (b) Approx posterior using the normalizing flow; (c) Approx posterior using NICE; (d) Summary results comparing KL-divergences between the true and approximated densities for the first 3 cases](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%2019.png)
+![Approximating four non-Gaussian 2D distributions. The images represent densities for each energy function in table 1 in the range (−4,4)$^2$. (a) True posterior; (b) Approx posterior using the normalizing flow; (c) Approx posterior using NICE; (d) Summary results comparing KL-divergences between the true and approximated densities for the first 3 cases](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig19.png)
 
 Approximating four non-Gaussian 2D distributions. The images represent densities for each energy function in table 1 in the range (−4,4)$^2$. (a) True posterior; (b) Approx posterior using the normalizing flow; (c) Approx posterior using NICE; (d) Summary results comparing KL-divergences between the true and approximated densities for the first 3 cases
 
@@ -342,6 +342,6 @@ Approximating four non-Gaussian 2D distributions. The images represent densities
 - (c) **Approximate Posterior using NICE**: NICE 방법을 사용하여 각 posterior distribution을 근사한 결과를 보여줍니다.
 - (d) **Comparison of KL-divergences**: **True Posterior**와 **Approximate Posterior 간**의 Kullback–Leibler divergence을 비교합니다. 실제 분포와 근사 분포 사이의 차이를 정량적으로 평가합니다.
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%2020.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig20.png)
 
-![Untitled](assets/img/2023-11-16-write-Variational Inference_with_Normalizing_Flows/Untitled%2021.png)
+![Untitled](assets/img/2023-11-16-write-Variational_Inference_with_Normalizing_Flows/fig21.png)

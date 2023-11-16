@@ -9,8 +9,7 @@ author: jh_cha
 comments: true
 ---
 
-# Glow: Generative Flow
-with Invertible 1×1 Convolutions
+# Glow: Generative Flow with Invertible 1×1 Convolutions
 
 # Goal
 
@@ -35,7 +34,7 @@ with Invertible 1×1 Convolutions
 ## Types of Generative Models
 
 ### GANs [Goodfellow et al., 2014]
-![출처 : [https://lilianweng.github.io/posts/2018-10-13-flow-models/](https://lilianweng.github.io/posts/2018-10-13-flow-models/)](assets/img/2023-11-16-write-Glow/Untitled.png)
+![출처 : [https://lilianweng.github.io/posts/2018-10-13-flow-models/](https://lilianweng.github.io/posts/2018-10-13-flow-models/)](assets/img/2023-11-16-write-Glow/fig.png)
 
 출처 : [https://lilianweng.github.io/posts/2018-10-13-flow-models/](https://lilianweng.github.io/posts/2018-10-13-flow-models/)
 
@@ -53,7 +52,7 @@ GAN은 암시적(implicitly)으로 실제 학습 데이터의 분포를 학습�
 
 ### VAEs [Kingma and Welling, 2013, 2018]
 
-![출처 : [https://lilianweng.github.io/posts/2018-10-13-flow-models/](https://lilianweng.github.io/posts/2018-10-13-flow-models/)](assets/img/2023-11-16-write-Glow/Untitled%201.png)
+![출처 : [https://lilianweng.github.io/posts/2018-10-13-flow-models/](https://lilianweng.github.io/posts/2018-10-13-flow-models/)](assets/img/2023-11-16-write-Glow/fig1.png)
 
 출처 : [https://lilianweng.github.io/posts/2018-10-13-flow-models/](https://lilianweng.github.io/posts/2018-10-13-flow-models/)
 
@@ -76,7 +75,7 @@ VAE에서는 계산이 어려운(intractable) 사후확률 분포(posterior dist
 
 ### Autoregressive models [Van den Oord et al, 2016]
 
-![Visualization of a stack of *dilated* causal convolutional layers in WaveNet [Van den Oord et al, 2016]](assets/img/2023-11-16-write-Glow/Untitled%202.png)
+![Visualization of a stack of *dilated* causal convolutional layers in WaveNet [Van den Oord et al, 2016]](assets/img/2023-11-16-write-Glow/fig2.png)
 
 Visualization of a stack of *dilated* causal convolutional layers in WaveNet [Van den Oord et al, 2016]
 
@@ -106,7 +105,7 @@ $x_{t}$의 categorical distribution을 output으로 내보내게 되는 것이�
 
 ### Flow-based generative models
 
-![출처 : [https://lilianweng.github.io/posts/2018-10-13-flow-models/](https://lilianweng.github.io/posts/2018-10-13-flow-models/)](assets/img/2023-11-16-write-Glow/Untitled%203.png)
+![출처 : [https://lilianweng.github.io/posts/2018-10-13-flow-models/](https://lilianweng.github.io/posts/2018-10-13-flow-models/)](assets/img/2023-11-16-write-Glow/fig3.png)
 
 출처 : [https://lilianweng.github.io/posts/2018-10-13-flow-models/](https://lilianweng.github.io/posts/2018-10-13-flow-models/)
 
@@ -173,15 +172,15 @@ p(\mathbf{x})=\pi(\mathbf{z})\Bigl|\text{det}\frac{d\mathbf{z}}{d\mathbf{x}}\Big
 
 ## Jacobian Matrix and Determinant
 
-![Untitled](assets/img/2023-11-16-write-Glow/Untitled%204.png)
+![Untitled](assets/img/2023-11-16-write-Glow/fig4.png)
 
 **[Jacobian matrix](https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant)**는 위와같이 벡터 $\text{x}$, $\text{y}$에 대한 일차 편미분을 행렬로 나타낸 것입니다.
 
 즉, 우리가 $n$차원 입력 벡터 $\text{x}$를 $m$차원 출력 벡터 $\text{y}$로 mapping하는 ($\text{y}:\mathbb{R}^n \mapsto \mathbb{R}^m$)함수가 주어지면 이 함수의 모든 1차 편미분 함수 행렬을 이렇게 Jacobian matrix로 간단하게 표현할 수 있습니다.
 
-![Untitled](assets/img/2023-11-16-write-Glow/Untitled%205.png)
+![Untitled](assets/img/2023-11-16-write-Glow/fig5.png)
 
-![Untitled](assets/img/2023-11-16-write-Glow/Untitled%206.png)
+![Untitled](assets/img/2023-11-16-write-Glow/fig6.png)
 
 **[Determinant](https://en.wikipedia.org/wiki/Determinant)**는 행렬을 대표하는 값으로, 정방행렬(Square Matrix)에 어떤 특정한 방법으로 하나의 수를 대응시키는 일종의 함수입니다.
 
@@ -207,11 +206,11 @@ Determinant의 성질은 아래와 같습니다.
 
 **Normalizing Flow**의 동작 과정은 간단하게 표현하면 아래와 같습니다.
 
-![Untitled](assets/img/2023-11-16-write-Glow/Untitled%207.png)
+![Untitled](assets/img/2023-11-16-write-Glow/fig7.png)
 
 ($x$는 high dimensional data, $z$는 latent variable)
 
-![Untitled](assets/img/2023-11-16-write-Glow/Untitled%208.png)
+![Untitled](assets/img/2023-11-16-write-Glow/fig8.png)
 
 여기서 $**z$의 확률 분포를 알고 있다면 $x$의 확률 분포를 구할 수 있습니다**.
 
@@ -223,7 +222,7 @@ $p(x)$ $=$ $p(z)detJ$로 $z$의 확률 분포에 scalar값인 determinant를 곱
 
 그런데 실제 데이터인  $x$는 보통 매우 복잡한 분포를 가지기 때문에 $x$와 $z$를 하나의 함수로 바로 연결하기는 어렵습니다.
 
-![Untitled](assets/img/2023-11-16-write-Glow/Untitled%209.png)
+![Untitled](assets/img/2023-11-16-write-Glow/fig9.png)
 
 $p(x)=p(z_{1})detJ_{1}$ 
 
@@ -239,7 +238,7 @@ $p(z_{n-1})=p(z_{n})detJ_{n}$
 
 최종적으로 log likelihood는  $log($$p(x))$ $=$ $log(p(z_{n}))+\Sigma_n log(detJ_{n})$로 표현됩니다.
 
-![Untitled](assets/img/2023-11-16-write-Glow/Untitled%2010.png)
+![Untitled](assets/img/2023-11-16-write-Glow/fig10.png)
 
 딥러닝에서 Normalizing Flow를 적용하여 $x$의 확률 분포를 알기 위해서는 **2가지 조건이 꼭 충족**되어야 합니다.
 
@@ -250,7 +249,7 @@ $p(z_{n-1})=p(z_{n})detJ_{n}$
 
 # Proposed Generative Flow
 
-![One step of our flow in Glow paper](assets/img/2023-11-16-write-Glow/Untitled%2011.png)
+![One step of our flow in Glow paper](assets/img/2023-11-16-write-Glow/fig11.png)
 
 One step of our flow in Glow paper
 
@@ -258,7 +257,7 @@ One step of our flow in Glow paper
 
 위의 그림에서 볼 수 있듯이, one flow step은 **actnorm**, **invertible 1 x 1 convolution**, **affine coupling layer**로 이루어져 있습니다.
 
-![Multi-scale architecture (Dinh et al., 2016)](assets/img/2023-11-16-write-Glow/Untitled%2012.png)
+![Multi-scale architecture (Dinh et al., 2016)](assets/img/2023-11-16-write-Glow/fig12.png)
 
 Multi-scale architecture (Dinh et al., 2016)
 
@@ -266,7 +265,7 @@ Multi-scale architecture (Dinh et al., 2016)
 
 이 구조는 squeezing operation을 통해 구현할 수 있습니다. 
 
-![Untitled](assets/img/2023-11-16-write-Glow/Untitled%2013.png)
+![Untitled](assets/img/2023-11-16-write-Glow/fig13.png)
 
 이미지를 sub-square로 reshape하는데(4X4X1 ->2X2X4), 이 방법은 spatial size를 채널의 수로 효과적으로 trade하는 것입니다.
 
@@ -278,7 +277,7 @@ Multi-scale architecture (Dinh et al., 2016)
 
 ## Actnorm: scale and bias layer with data dependent initialization
 
-![Untitled](assets/img/2023-11-16-write-Glow/Untitled%2014.png)
+![Untitled](assets/img/2023-11-16-write-Glow/fig14.png)
 
 Actnorm은 Activation Output에 **Affine Transformation**을 적용하는것을 의미합니다. 결과적으로 Batch Normalization과 유사한 역할을 수행하는 것인데 invertible하고 Log Determinant 계산이 쉬워 Normalizing Flow에 적용하기 수월합니다.
 
@@ -296,7 +295,7 @@ initialization후에 scale과 bias parameter는 데이터와 independent한 regu
 
 ## **Invertible 1 x 1 convolution**
 
-![Untitled](assets/img/2023-11-16-write-Glow/Untitled%2015.png)
+![Untitled](assets/img/2023-11-16-write-Glow/fig15.png)
 
 Invertible 1 x 1 convolution은 Coupling Layer의 Input을 Split 하는 용도로 사용됩니다. 
 
@@ -308,17 +307,17 @@ RealNVP에서는 channel의 순서를 반대로 바꾸는 permutation이 포함�
 
 ## Affine Coupling Layers
 
-![NICE의 Coupling Layer](assets/img/2023-11-16-write-Glow/Untitled%2016.png)
+![NICE의 Coupling Layer](assets/img/2023-11-16-write-Glow/fig16.png)
 
 NICE의 Coupling Layer
 
-![RealNVP의 Affine Transformation](assets/img/2023-11-16-write-Glow/Untitled%2017.png)
+![RealNVP의 Affine Transformation](assets/img/2023-11-16-write-Glow/fig17.png)
 
 RealNVP의 Affine Transformation
 
 Coupling Layer란 Input을 둘로 나눠 구성한 Matrix인데, RealNVP에서 제안된 **Affine Coupling layer**를 본 논문에서도 활용하고 있습니다.
 
-![Glow의 affine coupling layer](assets/img/2023-11-16-write-Glow/Untitled%2018.png)
+![Glow의 affine coupling layer](assets/img/2023-11-16-write-Glow/fig18.png)
 
 Glow의 affine coupling layer
 
@@ -342,7 +341,7 @@ RealNVP는 Fixed Random Permutation 방식을 사용했습니다.
 
 본 논문의 Glow는 1×1 convolution 방식을 사용하고 있습니다.
 
-![The three main components of our proposed flow, their reverses, and their log-determinants in Glow paper](assets/img/2023-11-16-write-Glow/Untitled%2019.png)
+![The three main components of our proposed flow, their reverses, and their log-determinants in Glow paper](assets/img/2023-11-16-write-Glow/fig19.png)
 
 The three main components of our proposed flow, their reverses, and their log-determinants in Glow paper
 
@@ -352,7 +351,7 @@ The three main components of our proposed flow, their reverses, and their log-de
 
 ## **Gains using invertible** 1 × 1 **Convolution**
 
-![Comparison of the three variants - a reversing operation as described in the RealNVP, a fixed random permutation, and our proposed invertible 1 × 1 convolution, with additive (left) versus affine (right) coupling layers ](assets/img/2023-11-16-write-Glow/Untitled%2020.png)
+![Comparison of the three variants - a reversing operation as described in the RealNVP, a fixed random permutation, and our proposed invertible 1 × 1 convolution, with additive (left) versus affine (right) coupling layers ](assets/img/2023-11-16-write-Glow/fig20.png)
 
 Comparison of the three variants - a reversing operation as described in the RealNVP, a fixed random permutation, and our proposed invertible 1 × 1 convolution, with additive (left) versus affine (right) coupling layers 
 
@@ -362,7 +361,7 @@ Reverse, Shuffle, 1×1 convolution 방식의 Permutation을 실험한 결과입�
 
 ## **Comparison with RealNVP on standard benchmarks**
 
-![Untitled](assets/img/2023-11-16-write-Glow/Untitled%2021.png)
+![Untitled](assets/img/2023-11-16-write-Glow/fig21.png)
 
 다양한 데이터셋에 대한 RealNVP 모델과의 비교입니다. Bits per Dimension 성능을 측정했습니다.
 
@@ -374,7 +373,7 @@ Glow 모델이 **고해상도(high resolutions)까지 scaling이 가능한지**,
 
 ### Synthesis
 
-![ Random samples from the model, with temperature 0.7](assets/img/2023-11-16-write-Glow/Untitled%2022.png)
+![ Random samples from the model, with temperature 0.7](assets/img/2023-11-16-write-Glow/fig22.png)
 
  Random samples from the model, with temperature 0.7
 
@@ -382,7 +381,7 @@ Glow 모델에서 랜덤하게 샘플링한 이미지들인데, 이미지의 품
 
 ### Interpolation
 
-![Linear interpolation in latent space between real images](assets/img/2023-11-16-write-Glow/Untitled%2023.png)
+![Linear interpolation in latent space between real images](assets/img/2023-11-16-write-Glow/fig23.png)
 
 Linear interpolation in latent space between real images
 
@@ -392,27 +391,27 @@ latent space상에서 2개의 실제 데이터의 encoding한 벡터간 linear i
 
 ### Semantic Manipulation of attributes of a face
 
-![Smiling](assets/img/2023-11-16-write-Glow/Untitled%2024.png)
+![Smiling](assets/img/2023-11-16-write-Glow/fig24.png)
 
 Smiling
 
-![Pale Skin](assets/img/2023-11-16-write-Glow/Untitled%2025.png)
+![Pale Skin](assets/img/2023-11-16-write-Glow/fig25.png)
 
 Pale Skin
 
-![Blond Hair](assets/img/2023-11-16-write-Glow/Untitled%2026.png)
+![Blond Hair](assets/img/2023-11-16-write-Glow/fig26.png)
 
 Blond Hair
 
-![Young](assets/img/2023-11-16-write-Glow/Untitled%2027.png)
+![Young](assets/img/2023-11-16-write-Glow/fig27.png)
 
 Young
 
-![Narrow Eyes](assets/img/2023-11-16-write-Glow/Untitled%2028.png)
+![Narrow Eyes](assets/img/2023-11-16-write-Glow/fig28.png)
 
 Narrow Eyes
 
-![Male](assets/img/2023-11-16-write-Glow/Untitled%2029.png)
+![Male](assets/img/2023-11-16-write-Glow/fig29.png)
 
 Male
 
@@ -425,7 +424,7 @@ CelebA 데이터셋에는 Smiling, Blond Hair 등의 Label이 존재합니다.
 ### Effect of model depth
 
 ![Samples from shallow model on left vs deep model on right. Shallow model has L = 4
-levels, while deep model has L = 6 levels](assets/img/2023-11-16-write-Glow/Untitled%2030.png)
+levels, while deep model has L = 6 levels](assets/img/2023-11-16-write-Glow/fig30.png)
 
 Samples from shallow model on left vs deep model on right. Shallow model has L = 4
 levels, while deep model has L = 6 levels
@@ -435,7 +434,7 @@ levels, while deep model has L = 6 levels
 ### Effect of temperature
 
 ![Effect of change of temperature. From left to right, samples obtained at temperatures
-0, 0.25, 0.6, 0.7, 0.8, 0.9, 1.0](assets/img/2023-11-16-write-Glow/Untitled%2031.png)
+0, 0.25, 0.6, 0.7, 0.8, 0.9, 1.0](assets/img/2023-11-16-write-Glow/fig31.png)
 
 Effect of change of temperature. From left to right, samples obtained at temperatures
 0, 0.25, 0.6, 0.7, 0.8, 0.9, 1.0
