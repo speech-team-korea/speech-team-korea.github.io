@@ -9,7 +9,7 @@ author: jh_yun
 comments: true
 ---
 
-# Meta-StyleSpeech (Team Seminar)
+# Meta-StyleSpeech
 
 # Goal
 
@@ -111,7 +111,7 @@ $$
 
 ## StyleSpeech
 
-![The architecture of StyleSpeech](/assets/img/2023-11-16-write-Meta-StyleSpeech/fig 0.png)
+![The architecture of StyleSpeech](/assets/img/2023-11-16-write-Meta-StyleSpeech/Fig 0.png)
 
 The architecture of StyleSpeech
 
@@ -151,7 +151,7 @@ The architecture of Mel-style encoder
 
 ## Generator (StyleSpeech)
 
-![The architecture of generator](/assets/img/2023-11-16-write-Meta-StyleSpeech/Fig 3.png)
+![](/assets/img/2023-11-16-write-Meta-StyleSpeech/Fig 3.png)
 
 The architecture of generator
 
@@ -348,13 +348,13 @@ Architecure of Phoneme discriminator(up) and Style discriminator(down)
 
 ![Untitled](/assets/img/2023-11-16-write-Meta-StyleSpeech/Fig 6.png)
 
-![Untitled](/assets/img/2023-11-16-write-Meta-StyleSpeech/Fig 7.png)
-
-![Untitled](/assets/img/2023-11-16-write-Meta-StyleSpeech/Fig 8.png)
-
 Table 1을 통해 Seen 스피커에 대한 합성 능력이 StyleSpeech와 Meta-StyleSpeech가 제일 좋다는 것을 알 수 있음.
 
+![Untitled](/assets/img/2023-11-16-write-Meta-StyleSpeech/Fig 7.png)
+
 Table 2을 통해 타겟 목소리와의 유사도 또한 StyleSpeech와 Meta-StyleSpeech가 제일 좋다는 것을 알 수 있음.
+
+![Untitled](/assets/img/2023-11-16-write-Meta-StyleSpeech/Fig 8.png)
 
 Table 3을 통해 Unseen 스피커에 대한 합성 능력이 Meta-StyleSpeech가 제일 좋다는 것을 알 수 있음.
 
