@@ -64,8 +64,8 @@ Equation 1. Calculating the exact log-likelihood of the data by using the change
 
 - $P_{X}:$ The log-likelihood of the data
 - $P_{Z}:$ The prior distribution
-- $P_{X}(x|c):$ The conditional distribution of mel-spectrograms
-- $P_{Z}(z|c):$ The conditional prior distribution
+- $P_{X}(x\mid c):$ The conditional distribution of mel-spectrograms
+- $P_{Z}(z\mid c):$ The conditional prior distribution
 - $f_{dec}:$ The flow-based decoder
 - $x:$ The input mel spectrogram
 - $c:$ The text sequence
@@ -92,7 +92,7 @@ Equation 2. Calculating the prior distribution with parameters $\theta$ and an a
     
     여기서 $j$가 The index of the latent representation of speech, $i$가 index of statistic from $f_{enc}$
     
-    잠재 변수 $*z_{j}*$가 text encoder에서 생성된 $u_{i}$와 $*σ_i*$를 기반으로 하는 정규 분포 $N(z_j;u_i,\sigma_i)$를 따른다는 것을 의미함
+    잠재 변수 $z_{j}$가 text encoder에서 생성된 $u_{i}$와 $σ_i$를 기반으로 하는 정규 분포 $N(z_j;u_i,\sigma_i)$를 따른다는 것을 의미함
     
 
 ![Equation 3. The log-likelihood of the data](https://user-images.githubusercontent.com/87218795/285088298-b4339841-b568-487e-8640-0e1b50ebd628.png)
@@ -106,7 +106,7 @@ Equation 3. The log-likelihood of the data
 Equation 4. The most probable monotonic alignment $A^*$
 
 1. 현재 parameter $\theta$에 관해서, 가장 가능성이 높은 monotonic alignment를 먼저 찾기
-2. $\log p_{X}(x|c;\theta,A^*)$를 최대화하도록 parameter $\theta$를 업데이트
+2. $\log p_{X}(x\mid c;\theta,A^*)$를 최대화하도록 parameter $\theta$를 업데이트
 
 Global solution을 찾기 힘들기 때문에, 위와 같은 순서로 나눠서 학습을 진행하고 parameter와 alignment의 search space를 줄이고자 함
 
@@ -360,7 +360,7 @@ positive scalar value를 duration predictor가 예측한 duration에 곱해줌�
 
 **Audio Quality**
 
-![Table 4: The Mean Opinion Score (MOS) of a multi-speaker TTS with 95% confidence intervals](https://user-images.githubusercontent.com/87218795/285088440-7b712ab9-1d72-40c5-8593-8d859d028e85.pngㅇㅇㅇㅇㅇㅇ)
+![Table 4: The Mean Opinion Score (MOS) of a multi-speaker TTS with 95% confidence intervals](https://github.com/speech-team-korea/speech-team-korea.github.io/assets/87218795/3df1b035-eae8-4d22-8085-38bfdd8836aa)
 
 Table 4: The Mean Opinion Score (MOS) of a multi-speaker TTS with 95% confidence intervals
 
@@ -388,11 +388,11 @@ disentanglement 정도를 확인하기 위해서, GT-mel을 correct speaker iden
 
 Equation 9. The latent representation $z$ through the inverse pass of the flow-based decoder $f_{dec}$ with the source speaker identity $s$
 
-![Equation 10. The target mel-spectrogram $\^x$ through the forward pass of the decoder with the target speaker identity $\^s$](https://user-images.githubusercontent.com/87218795/285088445-c61ce6cb-8bd4-4b6f-8d36-0335a23dfa77.png)
+![Equation 10. The target mel-spectrogram $\hat{x}$ through the forward pass of the decoder with the target speaker identity $\hat{s}$](https://user-images.githubusercontent.com/87218795/285088445-c61ce6cb-8bd4-4b6f-8d36-0335a23dfa77.png)
 
-Equation 10. The target mel-spectrogram $\^x$ through the forward pass of the decoder with the target speaker identity $\^s$
+Equation 10. The target mel-spectrogram $\hat{x}$ through the forward pass of the decoder with the target speaker identity $\hat{s}$
 
-위의 식에서 볼 수 있듯이, source speaker $s$의 mel인 $x$를 target mel인  $\^x$로 바꿈
+위의 식에서 볼 수 있듯이, source speaker $s$의 mel인 $x$를 target mel인  $\hat{x}$로 바꿈
 
 ![Figure 11-(b): The fundamental frequency ($F0$) contours of synthesized speech samples from Glow-TTS trained on the LibriTTS dataset](https://user-images.githubusercontent.com/87218795/285088446-5bd5a136-0391-45ff-a5ff-89d9cab00a7c.png)
 
