@@ -48,13 +48,11 @@ Hard monotonic alignment를 enforcing하는 것을 통해 **robust TTS**를 만�
 
 # Training and Inference Procedures
 
-<aside>
-**Glow-TTS**
+### Glow-TTS
 Generating : **A mel-spectrogram**
 
-Conditioned on : **A monotonic and non-skipping alignment between text and speech representations** 
+Conditioned on : **A monotonic and non-skipping alignment** between text and speech representations
 
-</aside>
 
 본 논문에서 언급하기를, 사람이 text를 순서대로 읽는 방식에 영감을 받아 **단어를 skipping하는 것 없이 monotonic alignment를** **condition으로 mel을 생성**한다고 함
 
@@ -76,7 +74,7 @@ Equation 2. Calculating the prior distribution with parameters $\theta$ and an a
 
 - $P_{Z}:$ The prior distribution that is the isotropic multivariate Gaussian distribution
     
-    음성 데이터의 각 잠재 변수 $z_{j}$가 text encoder로부터 생성된 statistic, 즉 평균 $u_i$와 표준 편차 $*σ_i*$에 기반한 정규 분포를 따른다라는 기본 아이디어임
+    음성 데이터의 각 잠재 변수 $z_{j}$가 text encoder로부터 생성된 statistic, 즉 평균 $u_i$와 표준 편차 $\sigma_{i}$에 기반한 정규 분포를 따른다라는 기본 아이디어임
     
 - $u, \sigma:$ The statistics of the prior distribution obtained by the text encoder $f_{enc}$
 - $f_{enc}:$ The text encoder mapping the text condition $c(c_{1:T_{text}})$ to the statistics $u,\sigma$ ($u=u_{1:T_{text}},\sigma = \sigma_{1:T_{text}}$ )
@@ -106,7 +104,7 @@ Equation 3. The log-likelihood of the data
 Equation 4. The most probable monotonic alignment $A^*$
 
 1. 현재 parameter $\theta$에 관해서, 가장 가능성이 높은 monotonic alignment를 먼저 찾기
-2. $\log p_{X}(x\mid c;\theta,A^*)$를 최대화하도록 parameter $\theta$를 업데이트
+2. $\log p_{X}(x \mid c;\theta,A^*)$를 최대화하도록 parameter $\theta$를 업데이트
 
 Global solution을 찾기 힘들기 때문에, 위와 같은 순서로 나눠서 학습을 진행하고 parameter와 alignment의 search space를 줄이고자 함
 
@@ -174,9 +172,9 @@ $Q_{i,j}$를 $Q_{i-1,j-1}$과 $Q_{i,j-1}$중에서 큰 값으로 구하게 됨
 
 이 방식을 반복적으로 진행해서 모든 $Q$의 값을 구하고 $Q_{T_{text},T_{mel}}$까지 계산함
 
-마지막으로BackTracking을 통해서 전체의 most probable alignment $A^*$를 구하게 됨, $A^*(T_{mel})=T_{text}$
+마지막으로 BackTracking을 통해서 전체의 most probable alignment $A^{*}$ 를 구하게 됨, $A^{*}(T_{mel})=T_{text}$
 
-$A^*$가 Dynamic Programming (DP) 방식으로 효율적으로 계산이 가능하다는 것을 보여주고 있음
+$A^{*}$ 가 Dynamic Programming (DP) 방식으로 효율적으로 계산이 가능하다는 것을 보여주고 있음
 
 parallelization하기 어려운 알고리즘이지만 각 iteration마다 20ms보다 작은 시간이 걸렸고 전체 학습 시간의 2%도 안되기 때문에 효율적인 알고리즘이라고 언급하고 있음 (CPU 사용)
 
@@ -201,19 +199,12 @@ Figure 3. The encoder architecture of Glow-TTS
 
 Flow-based decoder를 활용하고 있음
 
-<aside>
-**During training :
+**During training** : 
+Transforming **a mel-spectrogram into the latent representation** for maximum likelihood estimation and our internal alignment search
 
-Transforming a mel-spectrogram into the latent representation for maximum likelihood estimation and our internal alignment search**
+**During inference** : 
+Transforming **the prior distribution into the mel-spectrogram distribution**
 
-</aside>
-
-<aside>
-**During inference :
-
-Transforming the prior distribution into the mel-spectrogram distribution**
-
-</aside>
 
 병렬적으로 forward transformation과 inverse transformation을 수행할 수 있도록, a family of flows로 이루어짐
 
