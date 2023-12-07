@@ -26,6 +26,9 @@ crtl+c, crtl+v로 업로드 가능하다.
 
 ![https://user-images.githubusercontent.com/43984708/281240969-6c947d86-6394-48ca-9aeb-d3782714c4db.png](https://user-images.githubusercontent.com/43984708/281240969-6c947d86-6394-48ca-9aeb-d3782714c4db.png)
 
+3-1. 위 방법을 안될시 Edit을 누르면 다른 링크를 얻을 수 있다.
+![](https://github.com/speech-team-korea/speech-team-korea.github.io/assets/43984708/52735c46-9400-44db-a32a-62b20d625263)
+
 4. 노션 같은 경우에는 `붙여넣기` 후 `이미지 임베드` 하면 이미지를 업로드 할 수 있다. 
 
 ![https://user-images.githubusercontent.com/43984708/281241365-31fd7c28-dfff-4e6c-98c3-039f8b19c0a3.png](https://user-images.githubusercontent.com/43984708/281241365-31fd7c28-dfff-4e6c-98c3-039f8b19c0a3.png)
