@@ -8,8 +8,7 @@ author1:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about: |
-    PRML Lab. Speech team
-    PRML Lab. in Korea University (Director: Prof. Seong-Whan Lee)
+    PRML Lab. Speech team in Korea University (Director: Prof. Seong-Whan Lee)
 
   # This photo will be used in the about section
   picture:
