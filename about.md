@@ -1,7 +1,7 @@
 ---
 layout: about
 title: About
-description: >
+description: |
   Pattern Recognition & Machine Learning Lab
   Korea University
   Speech Processing Team
