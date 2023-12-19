@@ -2,8 +2,8 @@
 layout: about
 title: About
 description: |
-  Pattern Recognition & Machine Learning Lab
-  Korea University
+  Pattern Recognition & Machine Learning Lab \\
+  Korea University \\
   Speech Processing Team
 sidebar: true
 order: 2
