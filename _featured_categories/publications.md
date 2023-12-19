@@ -1,10 +1,8 @@
 ---
 layout: list
 title: Publications
-redirect_to: https://prml-lab-speech-team.github.io/demo/
+redirect_to: https://speech-team-korea.github.io/publications.html
 slug: publications
 sidebar: true
 order: 1
-description: >
-  각종 팁 관련 
 ---
