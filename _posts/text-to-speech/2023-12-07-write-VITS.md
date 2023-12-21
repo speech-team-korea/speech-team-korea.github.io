@@ -9,7 +9,7 @@ author: jh_cha
 comments: true
 ---
 
-# VITS [PMLR 2021]
+# VITS [ICML 2021]
 
 - Jaehyeon Kim, Jungil Kong, and Juhee Son, "[Conditional variational autoencoder with adversarial learning for end-to-end text-to-speech](https://proceedings.mlr.press/v139/kim21f.html).", *PMLR*, 2021
 
