@@ -1,3 +1,14 @@
+---
+layout: post
+title: "[Emotional Speech Synthesis] Emotion Rendering for Conversational Speech Synthesis with Heterogeneous Graph-Based Context Modeling"
+description: >
+  Emotion Rendering for Conversational Speech Synthesis with Heterogeneous Graph-Based Context Modeling 논문 리뷰
+category: seminar
+tags: emotional-speech-synthesis
+author: jh_cha
+comments: true
+---
+
 # Emotion Rendering for Conversational Speech Synthesis with Heterogeneous Graph-Based Context Modeling
 
 - Liu Rui et al., "[Emotion Rendering for Conversational Speech Synthesis with Heterogeneous Graph-Based Context Modeling](https://arxiv.org/abs/2312.11947).”, *AAAI*, 2024
