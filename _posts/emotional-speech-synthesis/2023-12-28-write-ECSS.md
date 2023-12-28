@@ -10,7 +10,7 @@ comments: true
 ---
 
 
-# Emotion Rendering for Conversational Speech Synthesis with Heterogeneous Graph Based Context Modeling
+# Emotion Rendering for Conversational Speech Synthesis with Heterogeneous Graph-Based Context Modeling
 
 - Liu Rui et al., "[Emotion Rendering for Conversational Speech Synthesis with Heterogeneous Graph-Based Context Modeling](https://arxiv.org/abs/2312.11947).”, *AAAI*, 2024
 
