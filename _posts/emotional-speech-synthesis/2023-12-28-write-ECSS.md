@@ -191,7 +191,7 @@ Heterogeneous Graph : 반대로 그래프의 노드가 다른 여러 종류의 �
     
 - 최종 Total loss $L$은 아래와 같다 ($L_{fs2}$: FastSpeech2의 acoustic feature loss, $L^{mse}_{pro}$: prosody predictor의 MSE loss)
 
-- $L = L^{cl}_{emo} + L^{cl}_{int} + L^{mse}_{pro} + L_{fs2}$
+- $L=L^{cl}_{emo}+L^{cl}_{int}+ L^{mse}_{pro}+L_{fs2}$
 
 # Experiments
 
