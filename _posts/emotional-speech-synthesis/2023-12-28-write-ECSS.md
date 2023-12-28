@@ -118,7 +118,7 @@ Heterogeneous Graph : 반대로 그래프의 노드가 다른 여러 종류의 �
     <img width="1031" alt="Untitled 3" src="https://github.com/speech-team-korea/speech-team-korea.github.io/assets/87218795/19b01002-645b-4d4c-aa1b-56e00ca118fc">
     
     - Target Node ⇒ Query vector, Source Node ⇒ Key vector, dot production
-- Final emotion-aware graph-enhanced feature representation ⇒ $f\rq_u, f\rq_s, f\rq_a, f\rq_e, f\rq_i$
+- Final emotion-aware graph-enhanced feature representation ⇒ $f'_u, f'_s, f'_a, f'_e, f'_i$
 
 ## 3. Emotion Rendering (Emotional Conversational Speech Synthesizer)
 
@@ -131,21 +131,21 @@ Heterogeneous Graph : 반대로 그래프의 노드가 다른 여러 종류의 �
 - **Emotion Renderer**
     - Emotion predictor, Intensity predictor, Prosody predictor로 구성
     - Emotion predictor
-        - $f\rq_e$로부터 current utterance의 emotion representation인 $H^e_C$를 추론
-        - ECG encoding후의 $f\rq_e$는 dialogue history의 모든 emotion 노드들의 universal representation
+        - $f'_e$로부터 current utterance의 emotion representation인 $H^e_C$를 추론
+        - ECG encoding후의 $f'_e$는 dialogue history의 모든 emotion 노드들의 universal representation
         - 2 convolution layers, a bidirectional LSTM layer, 2 fully connected layers
-        - $H^e_C=\text {FC}(\text{BiLSTM}(\text{CNN}(f\rq_e)))$
+        - $H^e_C=\text {FC}(\text{BiLSTM}(\text{CNN}(f'_e)))$
     - Intensity predictor
-        - $f\rq_i$로부터 current utterance의 emotion intensity representation인 $H^i_C$를 추론
-        - ECG encoding후의 $f\rq_i$는 dialogue history의 모든 emotion intensity 노드들의 universal representation
+        - $f'_i$로부터 current utterance의 emotion intensity representation인 $H^i_C$를 추론
+        - ECG encoding후의 $f'_i$는 dialogue history의 모든 emotion intensity 노드들의 universal representation
         - 2 convolution layers, a bidirectional LSTM layer, 2 fully connected layers, a mean pooling layer
-        - $H^i_C=\text{AvgPooling}(\text {FC}_2(\text{BiLSTM}(\text{CNN}_2(f\rq_i))))$
+        - $H^i_C=\text{AvgPooling}(\text {FC}_2(\text{BiLSTM}(\text{CNN}_2(f'_i))))$
     - Prosody predictor
         - text 노드들의 feature representation으로부터 current utterance의 speaking prosody information을 추론
         - ECG encoding과정에서 이미 text 노드에서 audio information 정보를 가지고 있기 때문에, audio 노드들은 사용하지 않음
         - MSE loss (target으로 GST-based prosody extractor와 비교)
         - Multi-head attention layer
-    - 결국 Emotion Renderer에서는 graph-enhanced node features ($f\rq_e, f\rq_i, f\rq_p$) ⇒ current utterance의 emotion, intensity, prosody features를 예측 ($H^e_C, H^i_C, H^p_C$)
+    - 결국 Emotion Renderer에서는 graph-enhanced node features ($f'_e, f'_i, f'_p$) ⇒ current utterance의 emotion, intensity, prosody features를 예측 ($H^e_C, H^i_C, H^p_C$)
 - **Feature aggregator module**
     - 앞의 five features ($H^c_C, H^s_C, H^e_C, H^i_C, H^p_C$) ⇒ the final mixup feature $H_C$
     - current utterance의 좀 더 robust한 feature representation($H_C$)로 만든다
