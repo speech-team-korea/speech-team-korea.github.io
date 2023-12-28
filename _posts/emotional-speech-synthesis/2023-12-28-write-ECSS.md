@@ -191,7 +191,7 @@ Heterogeneous Graph : 반대로 그래프의 노드가 다른 여러 종류의 �
     
 - 최종 Total loss $L$은 아래와 같다 ($L_{fs2}$: FastSpeech2의 acoustic feature loss, $L^{mse}_{pro}$: prosody predictor의 MSE loss)
 
-    $L = L^{cl}_{emo} + L^{cl}_{int} + L^{mse}_{pro} + L_{fs2}$
+- $L = L^{cl}_{emo} + L^{cl}_{int} + L^{mse}_{pro} + L_{fs2}$
 
 # Experiments
 
@@ -205,7 +205,7 @@ Heterogeneous Graph : 반대로 그래프의 노드가 다른 여러 종류의 �
     - 23733 audio clips, 20 hours, 2541 conversations
     - 남자 speaker 1명, 여성 speaker 1명으로 구성
     - 44.10 kHz sampling rate
-- Emotion category와 intensity label에 대해서 fine-grained labeling을 추가적으로 진행함
+- Emotion category와 intensity label에 대해서 fine-grained labeling을 추가적으로 진행 (오픈소스로 공개할 예정이라는데 아직 깃헙에 코드도 공개되지 않았다..)
 - 최종적으로 7 emotion category labels (happy : 3871, sad : 722, angry : 226, disgust : 186, fear : 74, surprise : 497, neutral : 18197), 3 emotion intensity labels (weak : 19973, medium : 3646, strong : 154)으로 구성
 - 22.05 kHz으로 모두 Resampling
 - window length : 25ms
