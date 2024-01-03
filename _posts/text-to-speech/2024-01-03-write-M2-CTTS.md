@@ -12,8 +12,8 @@ comments: true
 
 # M2-CTTS: End-to-End Multi-Scale Multi-Modal Conversational Text-to-Speech Synthesis
 
-> Jinlong Xue, Yayue Deng, Fengping Wang, Ya Li, Yingming Gao, Jianhua Tao, Jianqing Sun, Jiaen Liang
-Accepted by ICASSP2023
+> Jinlong Xue, Yayue Deng, Fengping Wang, Ya Li, Yingming Gao, Jianhua Tao, Jianqing Sun, Jiaen Liang<br>
+Accepted by ICASSP2023<br>
 [[Paper](https://arxiv.org/abs/2305.02269)][[Demo](https://happylittlecat2333.github.io/icassp2023/)]
 > 
 
@@ -35,7 +35,7 @@ Accepted by ICASSP2023
 
 # Model Architecture
 
-<img width="1414" alt="Untitled 0" src="https://github.com/speech-team-korea/speech-team-korea.github.io/assets/87218795/7d2d0c1f-78a3-4f61-8dc7-78d90bc40fc3">
+<img width="1600" alt="Untitled 0" src="https://github.com/speech-team-korea/speech-team-korea.github.io/assets/87218795/7d2d0c1f-78a3-4f61-8dc7-78d90bc40fc3">
 
 - **FastSpeech 2** 기반
 - Conversation history로부터 textual, acoustic information을 가져오는 구조
@@ -54,15 +54,15 @@ Accepted by ICASSP2023
 - 대화를 이해하기 위해서, Global information(Emotion, Intention 등등)뿐만 아니라 detailed information(keywords, emphasis)도 활용하기 위한 구조
 - 고정된 길이의 대화 전체 embedding은 평균적인 prosody 정보를 modeling하는 단점
 - 그래서 **Coarse-grained Context Modeling**, **Fine-grained Context Modeling** 2가지 scale로 context를 modeling
-- **Multi-head attention**
+- **Multi-head attention** 활용
 - $Conversation = \{ A_{t-c}, B_{t-c+1},…,A_{t-1},B_t\}$
     - $c$ : memory capacity parameter (speaker $A$와 $B$의 대화 turn 수)
 
 ### Coarse-grained Context Modeling
 
-문장 level로 대화 정보를 모델링
+- 문장 level로 대화 정보를 모델링
 
-전체 문장으로부터 정보를 얻거나 문장 간 연결에서 Context 정보를 추출
+- 전체 문장으로부터 정보를 얻거나 문장 간 연결에서 Context 정보를 추출
 
 - **Text Utterance-Level Module** (TUM)
     - **pre-trained Sentence BERT**를 사용해서 semantic information을 잡음
@@ -80,9 +80,9 @@ Accepted by ICASSP2023
 
 ### Fine-grained Context Modeling
 
-Phoneme level로 대화 정보를 모델링
+- Phoneme level로 대화 정보를 모델링
 
-실제 대화 상황에서 사람은 특정 word나 phrase에 주목하는 것과 유사
+- 실제 대화 상황에서 사람은 특정 word나 phrase에 주목하는 것과 유사
 
 - **Text Phoneme-Level Module** (TPM)
     - **pre-trained BERT**로 hidden feature sequence인 $P_i$(i번째 문장)를 얻음
@@ -155,6 +155,6 @@ Phoneme level로 대화 정보를 모델링
 - B. Rohan et al, "[One TTS alignment to rule them all.](https://arxiv.org/abs/2108.10447)", *ICASSP, 2022.*
 - M. Dongchan et al, "[Meta-stylespeech](https://proceedings.mlr.press/v139/min21b.html): Multi-speaker adaptive text-to-speech generation.", *PMLR*, 2021.
 - Ren Yi et al., “[Fastspeech 2](https://arxiv.org/abs/2006.04558): Fast and high-quality end-to-end text to speech.”, *ICLR*, 2021
-- • W. Yuxuan et al., “[Style tokens](https://proceedings.mlr.press/v80/wang18h.html?ref=https://githubhelp.com): Unsupervised style modeling, control and transfer in end-to-end speech synthesis.”, PMLR, 2018.
+- W. Yuxuan et al., “[Style tokens](https://proceedings.mlr.press/v80/wang18h.html?ref=https://githubhelp.com): Unsupervised style modeling, control and transfer in end-to-end speech synthesis.”, *PMLR*, 2018.
 - [Sentence BERT](https://huggingface.co/sentence-transformers/distiluse-base-multilingual-cased-v1)
 - [Wav2vec 2.0 fine-tuned on IEMOCAP](https://huggingface.co/speechbrain/emotion-recognition-wav2vec2-IEMOCAP)
