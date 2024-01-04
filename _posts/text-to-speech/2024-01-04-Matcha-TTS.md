@@ -101,7 +101,7 @@ $$
 
 이러한 문제점을 해결하기 위해서 Conditional Flow Matching이 제안되었습니다.
 
-Conditional Flow Matching은 ‘Per-example’ 접근법 (i.e. conditional)을 사용합니다. 즉, 위의 Assumption 1번에 따라 $q(x_{1} )$에서 샘플 1개를 얻고, 이 샘플에 Conditioned 된 *Conditional probability path* $p_{t} (x | x_{1})$ 와 이러한 $p_{t} (x \| x_{1})$를 만드는 *Conditional vector field* $u_{t} (x \|x _ {1})$ 를 정의할 수 있습니다. 그리고 여기서 $p_{t} (x \| x_ {1})$는 아래의 두 조건을 만족한다고 가정합니다.
+Conditional Flow Matching은 ‘Per-example’ 접근법 (i.e. conditional)을 사용합니다. 즉, 위의 Assumption 1번에 따라 $q(x_{1} )$에서 샘플 1개를 얻고, 이 샘플에 Conditioned 된 *Conditional probability path* $p_{t} (x \| x_{1})$ 와 이러한 $p_{t} (x \| x_{1})$를 만드는 *Conditional vector field* $u_{t} (x \|x _ {1})$ 를 정의할 수 있습니다. 그리고 여기서 $p_{t} (x \| x_ {1})$는 아래의 두 조건을 만족한다고 가정합니다.
 
 $$
 p_{0} (x | x_{1}) = N(x|0,I), \quad t=0
@@ -165,12 +165,12 @@ $$
 - Text encoder
     - Glow-TTS, Grad-TTS를 Follow
     - Encoder loss도 Grad-TTS 와 동일하게 아래처럼 정의
-        - $\mathcal{L}_{\text{enc}} = - \sum ^{F} _ {j=1} \log \psi (y_{j}; \tilde{\mu} _{A(j)} , I)$
+        - $\mathcal{L}_ {\text{enc}} = - \sum ^{F} _ {j=1} \log \psi (y_{j}; \tilde{\mu} _{A(j)} , I)$
     - Text-encoder의 아웃풋 벡터들은 Duration predictor에 맞춰 Upsampling(복제)
     - Upsampling 결과를 $\mu$ 라고 표현
     - $\mu$는 최종적으로 주어진 텍스트와  duration에 따라 예측된 Average 어쿠스틱 피쳐
     - $\mu$는 Decoder가 Vector field를 예측할 때에 컨디션으로 사용
-        - Decoder:  $v_{t} (\phi_ {t} ^{\text{OT}}(x_{0})|\mu; \theta )$
+        - Decoder:  $v_{t} (\phi_ {t} ^{\text{OT}}(x_{0}) \|\mu; \theta )$
     - 특이점: Grad-TTS와 다르게 맨 처음 노이즈 샘플 $x_0$에는 $\mu$가 사용되지 않음
 
 - Duration predictor
