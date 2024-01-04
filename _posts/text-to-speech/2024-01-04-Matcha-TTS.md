@@ -83,7 +83,7 @@ $$
 Flow matching을 위해 2가지 가정을 짚고 가겠습니다. 
 
 - ***Assumption 1***: $q(x_ 1 )$  에서 얻은 **샘플에 대한 접근은 가능**하지만, density function $q(x_ 1 )$ 에 대한 접근은 불가능 합니다.
-- ***Assumption 2***: $p_ 0 = p$ 는 $p(x) = N( x|0,I)$ 처럼 단순한 분포이고, $p_ 1 \approx q$ 를 만족하는 **Target probability path $p_ t$ 가 존재**합니다. 또한 이런 $p_{t}$ 를 만드는 **Vector field $u_{t} (x)$ 가 존재**합니다.
+- ***Assumption 2***: $p_ 0 = p$ 는 $p(x) = N( x \|0,I)$ 처럼 단순한 분포이고, $p_ 1 \approx q$ 를 만족하는 **Target probability path $p_ t$ 가 존재**합니다. 또한 이런 $p_{t}$ 를 만드는 **Vector field $u_{t} (x)$ 가 존재**합니다.
 
 위의 2가지 가정과 함께 아래와 같은 **Flow Mathcing objective** 를 정의합니다.
 
@@ -101,7 +101,7 @@ $$
 
 이러한 문제점을 해결하기 위해서 Conditional Flow Matching이 제안되었습니다.
 
-Conditional Flow Matching은 ‘Per-example’ 접근법 (i.e. conditional)을 사용합니다. 즉, 위의 Assumption 1번에 따라 $q(x_{1} )$에서 샘플 1개를 얻고, 이 샘플에 Conditioned 된 *Conditional probability path* $p_{t} (x | x_{1})$ 와 이러한 $p_{t} (x | x_{1})$를 만드는 *Conditional vector field* $u_{t} (x |x _{1})$ 를 정의할 수 있습니다. 그리고 여기서 $p_{t} (x | x_{1})$는 아래의 두 조건을 만족한다고 가정합니다.
+Conditional Flow Matching은 ‘Per-example’ 접근법 (i.e. conditional)을 사용합니다. 즉, 위의 Assumption 1번에 따라 $q(x_{1} )$에서 샘플 1개를 얻고, 이 샘플에 Conditioned 된 *Conditional probability path* $p_{t} (x | x_{1})$ 와 이러한 $p_{t} (x \| x_{1})$를 만드는 *Conditional vector field* $u_{t} (x \|x _ {1})$ 를 정의할 수 있습니다. 그리고 여기서 $p_{t} (x \| x_ {1})$는 아래의 두 조건을 만족한다고 가정합니다.
 
 $$
 p_{0} (x | x_{1}) = N(x|0,I), \quad t=0
@@ -125,7 +125,7 @@ $$
 
 ---
 
-[Flow Mathcing for Generative Modeling, 2022] 에서는 더욱 일반화된 CFM을 위해 Conditional probability path $p_ {t} (x | x _ {1})$ 와 Conditional vector field $u_ {t} (x | x _ {1})$에 대한 논의를 시작합니다.
+[Flow Mathcing for Generative Modeling, 2022] 에서는 더욱 일반화된 CFM을 위해 Conditional probability path $p_ {t} (x \| x _ {1})$ 와 Conditional vector field $u_ {t} (x \| x _ {1})$에 대한 논의를 시작합니다.
 
 ![Untitled](https://github.com/speech-team-korea/speech-team-korea.github.io/assets/144989499/0fea6bc7-01da-49b6-a156-c50a331a5d56)
 
@@ -153,7 +153,7 @@ $$
 
 이 때, $\phi_ {t} ^{\text{ OT} } (x_ {0}) = (1-(1-\sigma_ {\min} ) t ) x_ {0} + t x_ {1}$ 로 정의하여 시간이 변함에 따라 $x_ {0}$ 에서 $x_ {1}$ 로 변화하는 Flow로 생각할 수 있습니다.
 
-이렇게 하면 구하고자 하는 Vector field  $u_{t} ^{\text{OT}} (\phi_ {t} ^{\text{OT}}(x_{0})|x_{1})$ 는 Linear, Time invariant 하고, 오직 $x_0$와 $x_1$ 값에만 의존하는  $u_{t} ^{\text{OT}} (\phi_ {t} ^{\text{OT}}(x_{0})|x_{1}) = x_{1} - (1- \sigma _{\text{min}} ) x_{0}$ 라고 할 수 있습니다. 
+이렇게 하면 구하고자 하는 Vector field  $u_{t} ^{\text{OT}} (\phi_ {t} ^{\text{OT}}(x_{0}) \|x_{1})$ 는 Linear, Time invariant 하고, 오직 $x_0$와 $x_1$ 값에만 의존하는  $u_{t} ^{\text{OT}} (\phi_ {t} ^{\text{OT}}(x_{0})\|x_{1}) = x_{1} - (1- \sigma _ {\text{min}} ) x_{0}$ 라고 할 수 있습니다. 
 
 # Architecture
 
@@ -180,8 +180,8 @@ $$
 - Decoder
     - U-Net 기반 (Stable-diffusion에서 영감받음)
         - 1D conv residual block + Transformer block
-    - $v_{t} (\phi_ {t} ^{\text{OT}}(x_{0})|\mu; \theta )$
-    - $\mathcal{L}_ {\text{OT-CFM}} ( \theta ) = \mathbb{E}_{t,q(x_{1}),p_{0} (x_{0})} || u_{t} ^{\text{OT}} (\phi_ {t} ^{\text{OT}}(x_{0})|x_{1}) - v_{t} (\phi_ {t} ^{\text{OT}}(x_{0})|\mu; \theta ) || ^2$
+    - $v_{t} (\phi_ {t} ^{\text{OT}}(x_{0}) \| \mu; \theta )$
+    - $\mathcal{L}_ {\text{OT-CFM}} ( \theta ) = \mathbb{E}_ {t,q(x_{1}),p_{0} (x_{0})} \|\| u_{t} ^{\text{OT}} (\phi_ {t} ^{\text{OT}}(x_{0})\|x_{1}) - v_{t} (\phi_ {t} ^{\text{OT}}(x_{0})\|\mu; \theta ) \|\| ^2$
     
 
 # Experiment
