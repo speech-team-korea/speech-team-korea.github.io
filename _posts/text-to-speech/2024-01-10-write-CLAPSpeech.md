@@ -107,10 +107,10 @@ Accepted by *ACL*2023 (Main Conference)<br>
 <img width="600" alt="Untitled 5" src="https://github.com/speech-team-korea/speech-team-korea.github.io/assets/87218795/61a59aaa-c5a4-488d-a815-62427ca1e597">
 
 - $T_{ph}$: phoneme token representation, $S$: speech representation
-    - $T_{ph}\in \reals^{N \times C}$, $S \in \reals^{N \times C}$, $C$: channel size
+    - $T_{ph}\in {\Reals}^{N \times C}$, $S \in {\Reals}^{N \times C}$, $C$: channel size
 - $X_{text}$: 선택된 phoneme token이 포함된 text context
 - $X_{speech}$: phoneme token의 speech segment
-    - $X_{speech}\in \reals^{F \times T}$, $F$: Mel bins의 수, $T$: Time bins의 수
+    - $X_{speech}\in {\Reals}^{F \times T}$, $F$: Mel bins의 수, $T$: Time bins의 수
 - $f_{text}(\cdot)$: text encoder, $f_{speech}(\cdot)$: speech encoder, $i_{ph}$: phoneme token의 index
 - $LN$: layer normalization, $L_{text}$, $L_{speech}$: linear projections
 
@@ -119,7 +119,7 @@ Accepted by *ACL*2023 (Main Conference)<br>
 
 - $L_{ph}$: **Phoneme level CLAPSpeech의 training loss**
 - $C_{ph}$: $T_{ph}$와 $S$간의 cosine similarity matrix
-    - $C_{ph}=T_{ph}\cdot S^T$, $C_{ph} \in \reals^{N \times N}$
+    - $C_{ph}=T_{ph}\cdot S^T$, $C_{ph} \in {\Reals}^{N \times N}$
 - $\tau$: 학습가능한 temperature 파라미터 (logits의 scale을 조절)
 - $l_k$: Cross entropy function along the text and speech axis in $C$
     - $l_k=\frac 1 N \Sigma^N_{i=0} \log \text {diag}(\text {softmax}(C))$
