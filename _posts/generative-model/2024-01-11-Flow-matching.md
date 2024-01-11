@@ -2,7 +2,7 @@
 layout: post
 title: "[Generative Model] Flow matching"
 description: >
-  P-Flow 논문 요약
+  Flow matching 논문 요약
 category: seminar
 tags: generative model
 author: jh_yun
@@ -13,7 +13,7 @@ comments: true
 
 <blockquote style="border-left: 2px solid; padding-left: 10px; margin-left: 0;">
 Yaron Lipman, Ricky T. Q. Chen, Heli Ben-Hamu, Maximilian Nickel, Matt Le <br>
-ICLR, 2023 <br>
+Accepted by ICLR, 2023 <br>
 [<a href="https://arxiv.org/pdf/2210.02747.pdf">Paper</a>] <br>
 </blockquote>
 
@@ -45,7 +45,7 @@ ICLR, 2023 <br>
         - Probability density path $p_t$는 time-dependent probability density function 입니다.즉, 시점 $(0 \leq t \leq 1)$이 딱 정해지면, 그 시점에 대한 P.d.f 를 의미합니다. (위에 적은 정의역을 보시면 이해가 됩니다).
         - 아래의 예시는 GPT가 그려준 예시인데,  $t=0$ 부터 $t=1$까지의 시간을 0.25마다 이산적으로 정해주고, 데이터 차원 $d=1$ 인 p.d.f 입니다. 만약 아래의 p.d.f가 이산적인 시간이 아니라 연속적인 시간에 대응하여 무한 개가 존재한다고 합시다. 그 무한개의 초록색 p.d.f를 입체적으로 앞뒤로 이어붙이면 흐물흐물 거리는 3D 터널이 되고, 그 터널이 지금 설명하고 있는 probability density path $p_t$ 입니다. 즉, 시간이 지남에 따라 터널이 조금씩 굴곡이 생기는 터널로 가볍게 이해할 수 있습니다. 그리고 그 터널을 위에서 가로방향과 평행하게 잘라 단면적을 보면 특정 시점 $t$에서의 p.d.f 라고 할 수 있습니다. (앞으로 편의를 위해서 probability path라고 하겠습니다)
         
-        ![Untitled](Flow%20matching%20%E1%84%89%E1%85%AE%E1%84%89%E1%85%B5%E1%86%A8%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5%20a45f9241d5414fd4858d5fdc2cb8125e/Untitled.png)
+        ![Untitled](https://github.com/speech-team-korea/speech-team-korea.github.io/assets/144989499/d5b1ef83-e6b2-49c9-96dd-3bffd9342bab)
         
         - Prabability path 를 터널로 이해하고 보니, Flow와 Probability path 둘 다 심플한 분포에서 원하는 분포로 연결하는 연결다리로 이해될 수도 있습니다. 하지만 이 둘은 엄연히 다릅니다. 이는 후에 더 설명하겠습니다.
 
@@ -101,7 +101,7 @@ $$
 Flow matching을 위해 2가지 가정을 짚고 가겠습니다. 
 
 - ***Assumption 1***: $q(x_ 1 )$  에서 얻은 **샘플에 대한 접근은 가능**하지만, density function $q(x_ 1 )$ 에 대한 접근은 불가능 합니다.
-- ***Assumption 2***: $p_ 0 = p$ 는 $p(x) = N( x|0,I)$ 처럼 단순한 분포이고, $p_ 1 \approx q$ 를 만족하는 **Target probability path $p_ t$ 가 존재**합니다. 또한 이런 $p_{t}$ 를 만드는 **Vector field $u_{t} (x)$ 가 존재**합니다.
+- ***Assumption 2***: $p_ 0 = p$ 는 $p(x) = N( x \|0,I)$ 처럼 단순한 분포이고, $p_ 1 \approx q$ 를 만족하는 **Target probability path $p_ t$ 가 존재**합니다. 또한 이런 $p_{t}$ 를 만드는 **Vector field $u_{t} (x)$ 가 존재**합니다.
 
 위의 2가지 가정과 함께 아래와 같은 **Flow Mathcing objective** 를 정의합니다.
 
@@ -119,7 +119,7 @@ $$
 
 이러한 문제점을 해결하기 위해서 Conditional Flow Matching이 제안되었습니다.
 
-Conditional Flow Matching은 ‘Per-example’ 접근법 (i.e. conditional)을 사용합니다. 즉, 위의 Assumption 1번에 따라 $q(x_{1} )$에서 샘플 1개를 얻고, 이 샘플에 Conditioned 된 *Conditional probability path* $p_{t} (x | x_{1})$ 와 이러한 $p_{t} (x | x_{1})$를 만드는 *Conditional vector field* $u_{t} (x |x _{1})$ 를 정의할 수 있습니다. 그리고 여기서 $p_{t} (x | x_{1})$는 아래의 두 조건을 만족한다고 가정합니다.
+Conditional Flow Matching은 ‘Per-example’ 접근법 (i.e. conditional)을 사용합니다. 즉, 위의 Assumption 1번에 따라 $q(x_{1} )$에서 샘플 1개를 얻고, 이 샘플에 Conditioned 된 *Conditional probability path* $p_{t} (x \| x_{1})$ 와 이러한 $p_{t} (x \| x_{1})$를 만드는 *Conditional vector field* $u_{t} (x \|x _{1})$ 를 정의할 수 있습니다. 그리고 여기서 $p_{t} (x \| x_{1})$는 아래의 두 조건을 만족한다고 가정합니다.
 
 $$
 p_{0} (x | x_{1}) = N(x|0,I), \quad t=0
@@ -141,13 +141,13 @@ $$
 p_1 (x) = \int p_1(x|x_1) q(x_1) d x_1 \approx q(x)
 $$
 
-마찬가지로 conditinoal vector field $u_t(\cdot |x_1)$으로부터 marginal vector field도 정의할 수 있습니다.
+마찬가지로 conditinoal vector field $u_t(\cdot \|x_1)$으로부터 marginal vector field도 정의할 수 있습니다.
 
 $$
 u_t(x) = \int u_t (x|x_1) \frac{p_t(x|x_1)q(x_1)}{p_t(x)} dx_1
 $$
 
-![Untitled](Flow%20matching%20%E1%84%89%E1%85%AE%E1%84%89%E1%85%B5%E1%86%A8%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5%20a45f9241d5414fd4858d5fdc2cb8125e/Untitled%201.png)
+![Untitled](https://github.com/speech-team-korea/speech-team-korea.github.io/assets/144989499/bc492180-b6d0-4791-bb95-c5fc64d57e6b)
 
 이제 Conditional probability path와 Conditional vector field를 marginalizing 하여 우리가 원하는 probability와 vector field에 접근이 가능해 보입니다. 하지만, 아쉽게도 marginalizing 과정에서 아직 intractable 한 항이 존재하여 단순한 marginalizing 으로 이 문제를 해결하기 어렵습니다.
 
@@ -159,11 +159,11 @@ $$
 
 이 때, $\mathcal{L}_ {\text{FM}} ( \theta )$ 와 $\mathcal{L}_ {\text{CFM}} ( \theta )$  가 $\theta$에 대해 동일한 그래디언트를 갖는다는 것이 증명되었습니다. 따라서, $\mathcal{L}_ {\text{CFM}} ( \theta )$ 을 최적화하는 것이 $\mathcal{L}_ {\text{FM}} ( \theta )$ 을 최적화하는 것과 동치라는 결론에 이릅니다.
 
-![Untitled](Flow%20matching%20%E1%84%89%E1%85%AE%E1%84%89%E1%85%B5%E1%86%A8%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5%20a45f9241d5414fd4858d5fdc2cb8125e/Untitled%202.png)
+![Untitled](https://github.com/speech-team-korea/speech-team-korea.github.io/assets/144989499/f245336e-904f-409d-9d13-2ea55f66a91e)
 
-즉 위와 같은 Conditional vector field $u_ {t} (x | x_1 )$ 을 목표로 모델링해도 원래 문제의 최적점에 도달할 수 있게 됩니다. 
+즉 위와 같은 Conditional vector field $u_ {t} (x \| x_1 )$ 을 목표로 모델링해도 원래 문제의 최적점에 도달할 수 있게 됩니다. 
 
-이제 더욱 일반화된 CFM을 위해 Conditional probability path $p_ {t} (x | x _ {1})$ 와 Conditional vector field $u_ {t} (x | x _ {1})$에 대한 논의를 시작합니다. 다음과 같은 Conditinoal probability path를 생각해봅시다.
+이제 더욱 일반화된 CFM을 위해 Conditional probability path $p_ {t} (x \| x _ {1})$ 와 Conditional vector field $u_ {t} (x \| x _ {1})$에 대한 논의를 시작합니다. 다음과 같은 Conditinoal probability path를 생각해봅시다.
 
 $$
 p_t (x |x_1) = \mathcal{N} (x | \mu_t (x_1),\sigma_t(x_1)^2 I)
@@ -190,7 +190,7 @@ $$
 $$
 
 여기서 $x$가 표준 가우시안 분포에 위치한다고 했을 때, 위 수식의 Flow $\psi_t(x)$는 평균이 $\mu_t(x_1)$이고 표준편차가 $\sigma_t (x_1)$인 정규분포로 변환하는 Affine tranformation으로 이해할 수 있습니다. 
-즉, $\psi_t (x)$는 노이즈한 분포 $p_0 ( x| x_ 1 ) = p(x)$를 $p_t (x |x_1) = \mathcal{N} (x | \mu_t (x_1),\sigma_t(x_1)^2 I)$ 로 변환시킵니다. (이제는 Flow가 우리가 생각하는 ‘흐름’에 걸맞는 형식으로 쓰여진 것 같습니다.)
+즉, $\psi_t (x)$는 노이즈한 분포 $p_0 ( x\| x_ 1 ) = p(x)$를 $p_t (x \|x_1) = \mathcal{N} (x \| \mu_t (x_1),\sigma_t(x_1)^2 I)$ 로 변환시킵니다. (이제는 Flow가 우리가 생각하는 ‘흐름’에 걸맞는 형식으로 쓰여진 것 같습니다.)
 
 $$
 [\psi _ t ] * p(x) = p_t(x|x_1)
@@ -202,7 +202,7 @@ $$
 \frac{d}{dt} \psi _t (x)= u_t (\psi_t(x)|x_1)
 $$
 
-$p_t ( x|x_1 )$  를 $x_0$ 로 Reparameterizing 하고, 위 식을 이 전에 정의했던 CFM loss 식에 대입하면, 아래의 loss 식을 얻을 수 있습니다. 
+$p_t ( x\|x_1 )$  를 $x_0$ 로 Reparameterizing 하고, 위 식을 이 전에 정의했던 CFM loss 식에 대입하면, 아래의 loss 식을 얻을 수 있습니다. 
 
 $$
 \mathcal{L}_ {\text{CFM}} ( \theta ) = \mathbb{E}_{t, x_1 \sim q(x_{1}), x_0 \sim p (x_0)} || v_{t} (\psi_{t,x_1} (x_0); \theta) - \frac{d}{dt} \psi _{t, x_1} (x_0) || ^2
@@ -212,9 +212,9 @@ $$
 
 아래의 증명과 Thm을 통해, 지금까지 정한 가우시안 Probability path와 그에 대응하는 Flow $\psi_ {t, x_ 1 }$를 이용해서 $u_ t ( x | x _ 1 )$ 을 **Closed form으로 정할 수 있습니다.**
 
-![Untitled](Flow%20matching%20%E1%84%89%E1%85%AE%E1%84%89%E1%85%B5%E1%86%A8%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5%20a45f9241d5414fd4858d5fdc2cb8125e/Untitled%203.png)
+![Untitled](https://github.com/speech-team-korea/speech-team-korea.github.io/assets/144989499/fc18b6aa-3a58-4c8b-aa32-776296ed2ef8)
 
-![Untitled](Flow%20matching%20%E1%84%89%E1%85%AE%E1%84%89%E1%85%B5%E1%86%A8%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5%20a45f9241d5414fd4858d5fdc2cb8125e/Untitled%204.png)
+![Untitled](https://github.com/speech-team-korea/speech-team-korea.github.io/assets/144989499/09b57bcc-e87c-48ad-879c-829fe0b25bfe)
 
 ## Optimal transport conditional vector field
 
@@ -240,7 +240,7 @@ $$
 u_t(x|x_1 ) = \frac{x_1 - (1- \sigma_{\text{min}})x}{1-(1-\sigma_{\text{min}})t}
 $$
 
-그리고  $u_t (x|x_1)$에 대응하는 Flow는 정의된 path의 평균과 표준편차로 표현 가능합니다.
+그리고  $u_t (x\|x_1)$에 대응하는 Flow는 정의된 path의 평균과 표준편차로 표현 가능합니다.
 
 $$
 \psi_{t,x_1}(x) = \psi_t(x) = (1-(1-\sigma_{\text{min}}) t ) x + tx_1
@@ -253,7 +253,7 @@ $$
 $$
 
 $$
-\to \mathcal{L}_ {\text{CFM}} ( \theta ) = \mathbb{E}_{t, x_1 \sim q(x_{1}), x_0 \sim p (x_0)} || v_{t} (\psi_{t,x_1} (x_0); \theta) - (x_1 - (1-\sigma_{\text{min}} ) x_0 ) || ^2
+\to \mathcal{L}_ {\text{CFM}} ( \theta ) = \mathbb{E}_ {t, x_1 \sim q(x_{1}), x_0 \sim p (x_0)} || v_{t} (\psi_{t,x_1} (x_0); \theta) - (x_1 - (1-\sigma_{\text{min}} ) x_0 ) || ^2
 $$
 
-위와 같이 평균과 표준편차를 선형적으로 정의하는 방식은 단순할 뿐만 아니라 실제로도 Optimal 한 transport를 만들게 됩니다. 즉,  $\psi_{t,x_1}(x) = \psi_t(x) = (1-(1-\sigma_{\text{min}} )t ) x + tx_1$ 는 실제로 두 개의 가우시안분포 $p_0(x|x_1)$와 $p_1(x|x_1)$ 사이의 **Optimal Transport (OT) displacement map** 입니다.
+위와 같이 평균과 표준편차를 선형적으로 정의하는 방식은 단순할 뿐만 아니라 실제로도 Optimal 한 transport를 만들게 됩니다. 즉,  $\psi_{t,x_1}(x) = \psi_t(x) = (1-(1-\sigma_{\text{min}} )t ) x + tx_1$ 는 실제로 두 개의 가우시안분포 $p_0(x\|x_1)$와 $p_1(x\|x_1)$ 사이의 **Optimal Transport (OT) displacement map** 입니다.
