@@ -1,7 +1,7 @@
 ---
 layout: post
-category: post
-tags: post
+category: coding
+tags: pytorch
 author: hs_oh
 comments: true
 ---
