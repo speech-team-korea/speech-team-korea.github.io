@@ -23,13 +23,13 @@ Accepted by *ACL*2023 (Main Conference)<br>
 # Motivations
 
 - **Expressive TTS를 위한 기존 연구들**
-    - TTS에 prosody variance를 반영하기 위해서, **External variation predictor**(**prediction-based**, **PB** - e.g., FastSpeech 2)를 사용하거나 **variational generative model**(**variational-based**, **VB** - e.g., Glow-TTS, Diffsinger)을 활용
-    - pre-trained large **masked language model** task(e.g., [BERT](https://arxiv.org/abs/1810.04805), [Png BERT](https://arxiv.org/abs/2103.15060), [Speech BERT](https://ieeexplore.ieee.org/abstract/document/9413864))를 활용해서 text representation을 만듬
-    - input text를 기반으로 **masked mel-spectrogram**을 reconstruct하기도 함(e.g., [MAM](https://arxiv.org/abs/2010.11445), [A3t](https://proceedings.mlr.press/v162/bai22d.html))
+    - TTS에 prosody variance를 반영하기 위해서, **External variation predictor** (**prediction-based**, **PB** - e.g., FastSpeech 2)를 사용하거나 **variational generative model** (**variational-based**, **VB** - e.g., Glow-TTS, Diffsinger)을 활용
+    - pre-trained large **masked language model** task (e.g., [BERT](https://arxiv.org/abs/1810.04805), [Png BERT](https://arxiv.org/abs/2103.15060), [Speech BERT](https://ieeexplore.ieee.org/abstract/document/9413864))를 활용해서 representation을 만듬
+    - input text를 기반으로 **masked mel-spectrogram**을 reconstruct하기도 함 (e.g., [MAM](https://arxiv.org/abs/2010.11445), [A3t](https://proceedings.mlr.press/v162/bai22d.html))
 - **Reconstruction loss로 prosody를 implicitly 학습하기 때문에,** prosody modeling을 향상시키기 어려움
 - **Pronunciation space와 prosody space를 분리하지 않기 때문에**, training efficiency가 낮고 model capacity를 낭비
 - 기존의 text representation은 **다른 text context에서의 prosody variance를 잡지 못함**
-    - 본 논문에서는 **prosody**를 **다른 조건(e.g., text context와 speaker)에서 동일한 token의 pitch와 duration의 variance**로 생각할 수 있다고 언급
+    - 본 논문에서는 **prosody**를 **다른 조건 (e.g., text context와 speaker)에서 동일한 token의 pitch와 duration의 variance**로 생각할 수 있다고 언급
     - *"higher"*를 예시로 한다면*, "higher up"* or *"slightly higher"*에서 **같은 단어이지만 다른 prosody**
     - 다른 문맥에서 똑같은 text token의 prosody variance에 대한 모델링이 필요
     - 그래서 **prosody correlated to the text context**를 연구하는 것을 본 논문의 주 목적
@@ -117,7 +117,7 @@ Accepted by *ACL*2023 (Main Conference)<br>
 
 <img width="600" alt="Untitled 6" src="https://github.com/speech-team-korea/speech-team-korea.github.io/assets/87218795/a773859c-2d38-4c29-9ef1-de2073b76073">
 
-- $L_{ph}$: **Phoneme level CLAPSpeech의 training loss**
+- $L_{ph}$: **Phoneme level CLAPSpeech의 similarity scores**
 - $C_{ph}$: $T_{ph}$와 $S$간의 cosine similarity matrix
     - $C_{ph}=T_{ph}\cdot S^T$, $C_{ph} \in$ ${\mathbb{R}}^{N \times N}$
 - $\tau$: 학습가능한 temperature 파라미터 (logits의 scale을 조절)
@@ -128,7 +128,7 @@ Accepted by *ACL*2023 (Main Conference)<br>
 
 <img width="600" alt="Untitled 7" src="https://github.com/speech-team-korea/speech-team-korea.github.io/assets/87218795/5f2958df-85ab-4845-afd4-62bdaab114dc">
 
-- $L_{word}$: **Word level CLAPSpeech의 training loss**
+- $L_{word}$: **Word level CLAPSpeech의 silmilarity scores**
 - $C_{word}$: $T_{word}$와 $S$간의 cosine similarity matrix
     - 나머지는 phoneme level loss와 같음
 
