@@ -119,7 +119,7 @@ $$
 
 이러한 문제점을 해결하기 위해서 Conditional Flow Matching이 제안되었습니다.
 
-Conditional Flow Matching은 ‘Per-example’ 접근법 (i.e. conditional)을 사용합니다. 즉, 위의 Assumption 1번에 따라 $q(x_{1} )$에서 샘플 1개를 얻고, 이 샘플에 Conditioned 된 *Conditional probability path* $p_{t} (x \| x_{1})$ 와 이러한 $p_{t} (x \| x_{1})$를 만드는 *Conditional vector field* $u_{t} (x \|x _{1})$ 를 정의할 수 있습니다. 그리고 여기서 $p_{t} (x \| x_{1})$는 아래의 두 조건을 만족한다고 가정합니다.
+Conditional Flow Matching은 ‘Per-example’ 접근법 (i.e. conditional)을 사용합니다. 즉, 위의 Assumption 1번에 따라 $q(x_{1} )$에서 샘플 1개를 얻고, 이 샘플에 Conditioned 된 *Conditional probability path* $p_{t} (x \| x_{1})$ 와 이러한 $p_{t} (x \| x_{1})$를 만드는 *Conditional vector field* $u_{t} (x \|x _ {1})$ 를 정의할 수 있습니다. 그리고 여기서 $p_{t} (x \| x_{1})$는 아래의 두 조건을 만족한다고 가정합니다.
 
 $$
 p_{0} (x | x_{1}) = N(x|0,I), \quad t=0
@@ -210,7 +210,7 @@ $$
 
 즉, 원래는 우리가 원하는 Vector field $u_t$를 찾기위한 식이었지만,  **Flow의 시간에 대한 미분 값을 예측하는 문제로 바뀌었습니다.**
 
-아래의 증명과 Thm을 통해, 지금까지 정한 가우시안 Probability path와 그에 대응하는 Flow $\psi_ {t, x_ 1 }$를 이용해서 $u_ t ( x | x _ 1 )$ 을 **Closed form으로 정할 수 있습니다.**
+아래의 증명과 Thm을 통해, 지금까지 정한 가우시안 Probability path와 그에 대응하는 Flow $\psi_ {t, x_ 1 }$를 이용해서 $u_ t ( x \| x _ 1 )$ 을 **Closed form으로 정할 수 있습니다.**
 
 ![Untitled](https://github.com/speech-team-korea/speech-team-korea.github.io/assets/144989499/fc18b6aa-3a58-4c8b-aa32-776296ed2ef8)
 
