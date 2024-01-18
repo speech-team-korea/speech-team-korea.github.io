@@ -79,7 +79,7 @@ preceding context A가 speech prompt의 역할, zero-shot speak speaker adaptati
 ### VQ-diffusion
 
 - 데이터 샘플 하나를 아래와 같이 가정
-    - $x_0=[x^{(1)}_0, x^{(2)}_0, ..., x^{(l)}_0]$, where $x^{(i)}_0 \in \{{1,2,…,K}\}$
+    - $x_0=[x^{(1)}_0, x^{(2)}_0, ..., x^{(l)}_0]$, where $x^{(i)}_0 \in {1,2,…,K}$
 - Forward diffusion step $t$동안 **making, substitution, remain unchanged**를 적용해서 $x_t$를 만들 수 있고 forward process는 아래 식과 같다
     
     <img width="500" alt="Untitled 3" src="https://github.com/speech-team-korea/speech-team-korea.github.io/assets/87218795/8f70b81c-8540-4e63-a092-2a5d0cf76f16">
