@@ -14,11 +14,11 @@ comments: true
 <blockquote style="border-left: 2px solid; padding-left: 10px; margin-left: 0;">
 Rongjie Huang, Yi Ren, Jinglin Liu, Chenye Cui, Zhou Zhao <br>
 "GenerSpeech: Towards Style Transfer for Generalizable Out-of-Domain Text-to-Speech"<br>
-Accepted by *NeruIPS * 2022 <br>
+Accepted by NeurIPS 2022 <br>
 [<a href="https://arxiv.org/abs/2205.07211">Paper</a>] [<a href="https://generspeech.github.io/">Demo</a>] [<a href="https://github.com/Rongjiehuang/GenerSpeech">Code</a>] <br>
 </blockquote>
 
-[[SANE-TTS: Stable And Natural End-to-End Multilingual Text-to-Speech](https://arxiv.org/pdf/2206.12132.pdf), 2022]
+
 # Goal
 
 - Out-of-domain (OOD) custom voice에 대한 Zero-shot style transfer TTS 모델 제안
@@ -114,7 +114,7 @@ $$
 \text{Mix-StyleLN} (x,w) = \gamma _{\text{mix} } (w) \frac{x-\mu}{\sigma} + \beta_{\text{mix}} (w)
 $$
 
-- $w= \text{style vector},\quad \tilde{w}= \text{Shuffle} (w), \quad \lambda \in \mathbb{R} ^ B \sim \text{Beta}(\alpha, \alpha), \quad \alpha \in (0, \infin)$
+- $w= \text{style vector},\quad \tilde{w}= \text{Shuffle} (w), \quad \lambda \in \mathbb{R} ^ B \sim \text{Beta}(\alpha, \alpha), \quad \alpha \in (0, \infinite)$
 
 ![Untitled](https://github.com/speech-team-korea/speech-team-korea.github.io/assets/144989499/02686ca7-b982-4db7-9340-e7b2fe95d8dc)
 
@@ -123,6 +123,9 @@ $$
 ![Untitled](https://github.com/speech-team-korea/speech-team-korea.github.io/assets/144989499/4bde468f-2a90-42c6-8b55-4c2afa4eff10)
 
 최종적으로는 Content adaptor 의 끝단에 pitch predictor(style-agnostic pitch predictor)를 비치하여 style-agnostic prosodic variation을 만듭니다. 또한 Mix-Style Layer Normalization을 이용함으로써 speaker identity, emotion 과 같은 **Global style attributes로부터** **linguistic content-related variation을 분리하여 모델링**할 수 있었습니다.
+
+---
+
 
 ## Multi-level style adaptor
 
@@ -180,6 +183,8 @@ $$
 \text{Softmax} (\frac{\mathcal{H}_c \mathcal{S}_u ^ T}{\sqrt{d}}) \mathcal{S}_u 
 $$
 
+---
+
 ### Flow-based post net
 
 ![Untitled](https://github.com/speech-team-korea/speech-team-korea.github.io/assets/144989499/1372530e-0f09-4321-b2d3-756e0dbc0fe3)
@@ -187,6 +192,9 @@ $$
 학습과정동안, Flow post net은 합성된 Mel-spectrogram을 Gaussian prior 분포로 변환하고 데이터의 exact log-likelihood 를 계산합니다.
 
 인퍼런스 과정동안, Prior 분포에서 샘플링한 Latent variables 을 Post-net에 역으로 건네주어 Expressive한 Mel-spectrogram 을 만듭니다.
+
+---
+
 
 ### Pre-training
 
@@ -205,7 +213,7 @@ $$
     - $L _ {\text{pn}}$ : Post-net의 Negative log-likelihood
     - $L _ {\text{c}}$ : Commit loss
         - Vector quantizatioin
-        - ${L} _ c = \| z_e (x) - \text{sg} [e]\|^ 2 _2$
+        - ${L} _ c = \|\| z_e (x) - \text{sg} [e]\|\|^ 2 _2$
 
 ### Inference
 
