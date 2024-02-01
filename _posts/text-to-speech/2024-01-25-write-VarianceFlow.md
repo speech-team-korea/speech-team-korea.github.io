@@ -56,6 +56,8 @@ Accepted by *ICASSP*2022<br>
 - $\alpha$: 논문에서 0.1로 설정해서 학습했다고 언급
     
     <img width="440" alt="Untitled 5" src="https://github.com/speech-team-korea/speech-team-korea.github.io/assets/87218795/007558a2-f723-40c4-84f6-d411f1049ab6">
+
+    - [Network-to-Network Translation with Conditional Invertible Neural Networks](https://proceedings.neurips.cc/paper/2020/hash/1cfa81af29c6f2d8cacb44921722e753-Abstract.html) Appendix B 참고
     
 - 각 NF 모듈에서 variance 정보를 학습하면서 동시에 variance와 text를 disentangle
     - 위의 식과 같이 $L_{NF}$을 decomposition할 수 있는데, 두번째 entropy term인 $H(x \mid h)$가 상수라서 conditional latent variance distribution인 $q_\theta(z \mid h)$와 prior distribution인 $p(z)$사이의 KL-divergence를 최소화하도록 학습 ⇒ prior $p(z)$를 $h$(text)를 고려하지 않고 independent하게 gaussian 분포로 가정했기 때문에 h와 z를 disentangle하도록 학습되는 것
@@ -120,3 +122,7 @@ Accepted by *ICASSP*2022<br>
 - Normalizing flow를 기반으로 variance information을 제공해서 variance controllability를 향상시키면서 speech quality도 향상시킴
 
 # References
+- Yi Ren et al. "[Fastspeech 2](https://arxiv.org/abs/2006.04558): Fast and high-quality end-to-end text to speech.", *ICLR*, 2021.
+- D. P. Kingma and P. Dhariwal ,"[Glow](https://proceedings.neurips.cc/paper_files/paper/2018/hash/d139db6a236200b21cc7f752979132d0-Abstract.html): Generative flow with invertible 1x1 convolutions,” *NeurIPS*, 2018.
+- Kim, Jaehyeon, Jungil Kong, and Juhee Son. "[Conditional variational autoencoder with adversarial learning for end-to-end text-to-speech](https://proceedings.mlr.press/v139/kim21f.html).", *PMLR*, 2021.
+- Robin Rombach, Patrick Esser, and Bjorn Ommer. "[Network-to-network translation with conditional invertible neural networks.](https://proceedings.neurips.cc/paper_files/paper/2020/file/1cfa81af29c6f2d8cacb44921722e753-Paper.pdf)", *NeurIPS*, 2020.
