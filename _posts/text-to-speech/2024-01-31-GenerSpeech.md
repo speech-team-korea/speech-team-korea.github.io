@@ -37,6 +37,9 @@ Accepted by NeurIPS 2022 <br>
 
 - Multi-level로 구성된 Style adaptor와 Mix-style layer normalization을 사용하여, Style transfer 작업에서 Generalization 성능 향상
 - 기존 Domain generalization에서 제안된 agnostic & specific 접근법을 TTS 모델에 적용
+
+
+
 ---
 
 # Overview
