@@ -12,7 +12,7 @@ comments: true
 # GenerSpeech
 
 <blockquote style="border-left: 2px solid; padding-left: 10px; margin-left: 0;">
-Rongjie Huang, Yi Ren, Jinglin Liu, Chenye Cui, Zhou Zhao <br>
+Rongjie Huang, Yi Ren, Jinglin Liu, Chenye Cui and Zhou Zhao <br>
 "GenerSpeech: Towards Style Transfer for Generalizable Out-of-Domain Text-to-Speech"<br>
 Accepted by NeurIPS 2022 <br>
 [<a href="https://arxiv.org/abs/2205.07211">Paper</a>] [<a href="https://generspeech.github.io/">Demo</a>] [<a href="https://github.com/Rongjiehuang/GenerSpeech">Code</a>] <br>
@@ -36,7 +36,7 @@ Accepted by NeurIPS 2022 <br>
 # Contribution
 
 - Multi-level로 구성된 Style adaptor와 Mix-style layer normalization을 사용하여, Style transfer 작업에서 Generalization 성능 향상
-
+- 기존 Domain generalization에서 제안된 agnostic & specific 접근법을 TTS 모델에 적용
 ---
 
 # Overview
@@ -114,7 +114,7 @@ $$
 \text{Mix-StyleLN} (x,w) = \gamma _{\text{mix} } (w) \frac{x-\mu}{\sigma} + \beta_{\text{mix}} (w)
 $$
 
-- $w= \text{style vector},\quad \tilde{w}= \text{Shuffle} (w), \quad \lambda \in \mathbb{R} ^ B \sim \text{Beta}(\alpha, \alpha), \quad \alpha \in (0, \infinite)$
+- $w= \text{style vector},\quad \tilde{w}= \text{Shuffle} (w), \quad \lambda \in \mathbb{R} ^ B \sim \text{Beta}(\alpha, \alpha), \quad \alpha \in (0, \infty)$
 
 ![Untitled](https://github.com/speech-team-korea/speech-team-korea.github.io/assets/144989499/02686ca7-b982-4db7-9340-e7b2fe95d8dc)
 
