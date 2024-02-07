@@ -83,7 +83,7 @@ $$
 b_{mix} ( e_s) = \gamma b (e_s) + (1- \gamma)b(\tilde{e}_s)
 $$
 
-- $\tilde{e}_s$: shuffled $e_ s$ along the batch dimension,$\gamma$ $\gamma \sim \text{Beta} ( \alpha, \alpha)$
+- $\tilde{e} _ s$: shuffled $e _ s$ along the batch dimension,$\gamma$ $\gamma \sim \text{Beta} ( \alpha, \alpha)$
 
 $$
 \text{M-DSLN} ( h_t, e_s )  = W_{mix} (e_s) \odot \text{LN} ( h_t ) + b_{mix} ( e_s)
