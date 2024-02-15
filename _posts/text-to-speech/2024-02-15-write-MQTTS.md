@@ -1,3 +1,14 @@
+---
+layout: post
+title: "[Text-to-Speech] MQTTS"
+description: >
+  MQTTS 논문 요약
+category: seminar
+tags: text-to-speech
+author: jh_cha
+comments: true
+---
+
 # MQTTS: A Vector Quantized Approach for Text to Speech Synthesis on Real-World Spontaneous Speech
 
 > Li-Wei Chen, Shinji Watanabe, Alexander Rudnicky<br>
