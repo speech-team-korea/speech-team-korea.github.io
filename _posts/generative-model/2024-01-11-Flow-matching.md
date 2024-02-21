@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "[Generative Model] Flow matching"
+title: "[Generative-Model] Flow matching"
 description: >
   Flow matching 논문 요약
 category: seminar
-tags: generative model
+tags: generative-model
 author: jh_yun
 comments: true
 ---
