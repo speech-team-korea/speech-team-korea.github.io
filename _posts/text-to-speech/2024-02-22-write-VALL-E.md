@@ -116,7 +116,7 @@ comments: true
     - 같은 문장에서 3초의 Waveform을 random하게 잘라서 사용한다
     - $e_{\tilde {\text c}_{t}} = \sum^{i-1}_{j=1} e_{\tilde {\text c}_{t,j}}$
 - 최종적으로 $i$번째 codebook의 acoustic token들을 예측하기 위한 transformer의 input 
-⇒ the concatenation of $(e_{\text x}, e_{\tilde {\text c}}, e_{{\text c}_{:,<i}})$
+⇒ the concatenation of $(e_{\text x}, e_{\tilde {\text c}}, \mathbb{e_{\text c_{:,<i}}})$
     - positional embedding은 prompt와 acoustic sequence에 따로 적용
     - 현재 stage인 $i$에는 Adaptive Layer Normalization을 적용
     - $\text {AdaLN}(h,i)=a_i \text {LayerNorm(} h \text {)} +b_i$
