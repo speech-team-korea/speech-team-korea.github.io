@@ -54,7 +54,7 @@ comments: true
 - $\text {Encodec}(y) = \text C^{T \times 8}$
     - $\text C$: acoustic code matrix
         - $c_{t,:}$: code matrix의 row vector, t번째 frame에서 8개의 code
-        - $c_{:,j}$: code matrix의 column vector, j번째 codebook의 code sequence, $j \in \{{1, …, 8}\}$
+        - $c_{:,j}$: code matrix의 column vector, j번째 codebook의 code sequence, $j \in \{1, …, 8\}$
     - $T$: the downsampled utterance length
 - $\text {Decodec}(\text C) \approx {\tilde y}$
     - quantization후에 codec decoder를 통해 waveform을 reconstruct
