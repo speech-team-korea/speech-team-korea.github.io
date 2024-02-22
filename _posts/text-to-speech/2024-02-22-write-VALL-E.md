@@ -114,7 +114,7 @@ comments: true
     - $\odot$: index selection
 - Acoustic prompt인 $\tilde {\text C}^{T \times 8}$의 8개 codebook의 embedded representation들도 $e_{\tilde {\text c}_{t}}$로 합쳐서 input으로 사용
     - 같은 문장에서 3초의 Waveform을 random하게 잘라서 사용한다
-    - $e_{\tilde {\text c}_{t}} = \sum^{i-1}_{j=1} e_{\tilde {\text c}_{{t},j}}$
+    - $e_{\tilde {\text c}_{t}} = \sum^{i-1}_{j=1} e_{\tilde {\text c}_{t,j}}$
 - 최종적으로 $i$번째 codebook의 acoustic token들을 예측하기 위한 transformer의 input 
 ⇒ the concatenation of $(e_{\text x}, e_{\tilde {\text c}}, e_{{\text c}_{:,<i}})$
     - positional embedding은 prompt와 acoustic sequence에 따로 적용
