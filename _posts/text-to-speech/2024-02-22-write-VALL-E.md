@@ -48,13 +48,13 @@ comments: true
 - 24 kHz audio, Encoder는 input Waveform에서 75 Hz마다 embedding을 생성 (320배 reduction)
 - 각 embedding은 residual vector quantization (RVQ)로 모델링
 - 논문에서는 8개 quantizer, 1024 entries
-- Dataset $\text D = \{ {\text x}_i, {\text y}_i \}$
+- Dataset $\text D = \mathbb{\{{ {\text x}_i, {\text y}_i \}}}$
     - $\text y$: a audio sample
     - $\text x$ $= \{ {x_0, x_1, …, x_L} \}$: phoneme transcription
 - $\text {Encodec}(y) = \text C^{T \times 8}$
     - $\text C$: acoustic code matrix
         - $c_{t,:}$: code matrix의 row vector, t번째 frame에서 8개의 code
-        - $c_{:,j}$: code matrix의 column vector, j번째 codebook의 code sequence, $j \in \{1, …, 8\}$
+        - $c_{:,j}$: code matrix의 column vector, j번째 codebook의 code sequence, $\mathbb{{j \in \{1, …, 8\}}}$
     - $T$: the downsampled utterance length
 - $\text {Decodec}(\text C) \approx {\tilde y}$
     - quantization후에 codec decoder를 통해 waveform을 reconstruct
